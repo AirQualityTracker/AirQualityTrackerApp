@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AirQualityTracker</string>
+    <string name="get_started">Get started!</string>
+    <string name="my_city">My City</string>
+    <string name="get_location_text">Let Air Quality Tracker access your
+        location to provide</string>
+    <string name="find_my_location">Find my location</string>
 </resources>
