@@ -8,11 +8,15 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 
 public class GetLocationActivity extends AppCompatActivity {
@@ -24,7 +28,7 @@ public class GetLocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.get_location_activity);
 
-
+        //add findMyLocation button listener
         Button buttonRequest = findViewById(R.id.findMyLocationButton);
         buttonRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +46,18 @@ public class GetLocationActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        //add skip button listener
+        TextView buttonSkip = findViewById(R.id.skipLocationButton);
+        Intent mainMenuActivity = new Intent(this, MainMenuActivity.class);
+        buttonSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(mainMenuActivity);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
+            }
+        });
     }
 
     //this method checks the result of a permission
@@ -51,8 +67,12 @@ public class GetLocationActivity extends AppCompatActivity {
         if (requestCode == REQUEST_LOCATION_CODE)  {
             //if the grantResults contain the permission for location
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Permission GRANTED", Toast.LENGTH_SHORT).show();
+                //if the permission is granted then go to mainMenuActivity
+                Intent mainMenuActivity = new Intent(this, MainMenuActivity.class);
+                startActivity(mainMenuActivity);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
             } else {
+                //else show message
                 Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
             }
         }

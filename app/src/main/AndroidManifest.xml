@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.androidapp.airqualitytracker">
     <!-- set manifest to get user permission -->
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".GetLocationActivity"></activity>
+        <activity android:name=".MainMenuActivity"></activity>
+        <activity android:name=".GetLocationActivity" />
         <activity android:name=".GetStartedActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".StartupActivity">

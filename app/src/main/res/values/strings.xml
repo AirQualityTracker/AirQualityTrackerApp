@@ -5,4 +5,5 @@
     <string name="get_location_text">Let Air Quality Tracker access your
         location to provide</string>
     <string name="find_my_location">Find my location</string>
+    <string name="skip_find_location"><u>skip</u></string>
 </resources>
