@@ -28,6 +28,13 @@ public class GetLocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.get_location_activity);
 
+
+        addButtonListeners();
+
+    }
+
+
+    private void addButtonListeners(){
         //add findMyLocation button listener
         Button buttonRequest = findViewById(R.id.findMyLocationButton);
         buttonRequest.setOnClickListener(new View.OnClickListener() {
