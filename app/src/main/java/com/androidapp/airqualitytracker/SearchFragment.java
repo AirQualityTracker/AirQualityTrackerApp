@@ -23,6 +23,16 @@ public class SearchFragment extends Fragment {
         return inflater.inflate(R.layout.search_fragment, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view,  Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        searchView = (SearchView) sView.findViewById(R.id.searchBarView);
+        if(searchView != null){
+            searchView.requestFocus();
+        }
+    }
+
 
 
 }
