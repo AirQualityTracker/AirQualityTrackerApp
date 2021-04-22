@@ -22,6 +22,7 @@ public class LogInActivity extends AppCompatActivity {
             CharSequence userTextNew = data.getExtras().getCharSequence("usernameText");
             objEditTextUsername.setText(userTextNew);
         }
+        //get the user info and start a logged in session
     }
 
     @Override
@@ -54,4 +55,6 @@ public class LogInActivity extends AppCompatActivity {
 
 
     }
+
+
 }
