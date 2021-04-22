@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CreateNewAccountActivity extends AppCompatActivity {
 
@@ -24,13 +25,15 @@ public class CreateNewAccountActivity extends AppCompatActivity {
 
     }
 
-    public void editNewAccount(View view) {
+
+    //This method is used to create the users account when registered
+    public void createNewAccount() {
         Boolean userAddedSuccessfully = addUserToDb();
         //Try to add the user to the db
 
         //**should check if the email has already given**
 
-        if(userAddedSuccessfully){
+        if (userAddedSuccessfully) {
             //show message of successfull registration on screen
             AlertDialog.Builder builder = new AlertDialog.Builder(CreateNewAccountActivity.this);
             builder.setIcon(R.drawable.ic_baseline_check_24);
@@ -50,15 +53,14 @@ public class CreateNewAccountActivity extends AppCompatActivity {
             Intent i = new Intent(this, LogInActivity.class);
             CharSequence returnChars = objEditTextUsernameRegister.getText();
             i.putExtra("usernameText", returnChars);
-            setResult(RESULT_OK , i);
+            setResult(RESULT_OK, i);
 
             finish();
-        }else{
+        } else {
             //
+            Toast.makeText(getApplicationContext(),"Invalid Username or Password" , Toast.LENGTH_SHORT).show();
         }
-
     }
-
 
 
     //Method to add the user to the database

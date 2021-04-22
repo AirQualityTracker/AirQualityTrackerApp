@@ -23,6 +23,9 @@ public class LogInActivity extends AppCompatActivity {
             objEditTextUsername.setText(userTextNew);
         }
         //get the user info and start a logged in session
+        Intent mainMenu = new Intent(this, MainMenuActivity.class);
+        mainMenu.putExtra("savedUsername", objEditTextUsername.getText().toString());
+        startActivity(mainMenu);
     }
 
     @Override
@@ -37,23 +40,44 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
-    public void createNewAccount(View view) {
+    public void register(View view) {
         Intent i = new Intent(this, CreateNewAccountActivity.class);
         startActivityForResult(i ,5);
     }
 
 
     public void tryLogIn(View view) {
+        String username = objEditTextUsername.getText().toString();
         //check valids with an SQL table and confirms log in or not
+        User user = checkIfAccountExists(username);
+        boolean userExists = false;
+        if(user != null)
+            userExists = true;
 
-        if (true){
+        if (userExists){
             //open main page
+            Intent mainMenu = new Intent(this, MainMenuActivity.class);
+            mainMenu.putExtra("savedUsername", user.getUsername());
+        //    mainMenu.putExtra("savedEmail", user.getEmail());
+        //    mainMenu.putExtra("savedPassword", user.getPassword());
+
+            startActivity(mainMenu);
+
         }
         else{
             Toast.makeText(getApplicationContext(),"Invalid Username or Password" , Toast.LENGTH_SHORT).show();
         }
 
 
+    }
+
+    //checks if the user exists in the database
+    private User checkIfAccountExists(String username){
+        DatabaseHandler dbHandler = new DatabaseHandler(this, null, null, 1);
+        User user = dbHandler.findUser(username);
+        if(user != null)
+            return user;
+        return null;
     }
 
 

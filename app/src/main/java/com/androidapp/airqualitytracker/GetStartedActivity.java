@@ -18,7 +18,7 @@ public class GetStartedActivity extends AppCompatActivity {
 
 
     public void getStarted(View view) {
-        Intent getLocation = new Intent(this, GetLocationActivity.class);
+        Intent getLocation = new Intent(this, LogInActivity.class);
 
         startActivity(getLocation);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
