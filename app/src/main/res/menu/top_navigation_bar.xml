@@ -3,14 +3,14 @@
     <item
         android:id="@+id/top_nav_logo"
         android:icon="@mipmap/ic_launcher_round"
-        android:title="AQT"
+        android:title="@string/aqt"
         />
     <item
         android:id="@+id/top_nav_notifications"
         android:icon="@drawable/ic_baseline_notifications_24"
-        android:title="notifications" />
+        android:title="@string/notifications" />
     <item
         android:id="@+id/top_nav_menu"
         android:icon="@drawable/ic_baseline_menu_24"
-        android:title="Search" />
+        android:title="@string/menu" />
 </menu>
