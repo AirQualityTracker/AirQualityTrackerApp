@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     
     tools:context=".MainMenuActivity">
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/top_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/top_navigation_bar" />
+ <!-- <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/top_navigation"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+
+      android:background="?android:attr/windowBackground"
+      app:menu="@menu/top_navigation_bar" />-->
 
     <FrameLayout
         android:id="@+id/fragment_container"

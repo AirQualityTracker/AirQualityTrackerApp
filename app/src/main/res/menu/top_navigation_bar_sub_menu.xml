@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/top_nav_sub_menu_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings"
+        />
+    <item
+        android:id="@+id/top_nav_sub_menu_help"
+        android:icon="@drawable/ic_baseline_help_24"
+        android:title="@string/help" />
+    <item
+        android:id="@+id/top_nav_sub_menu_sign_in"
+        android:title="@string/sign_in" />
+</menu>

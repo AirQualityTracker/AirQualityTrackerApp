@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.androidapp.airqualitytracker">
+    package="com.androidapp.airqualitytracker" >
     <!-- set manifest to get user permission -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -17,13 +17,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar" >
         <activity android:name=".CreateNewAccountActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".GetLocationActivity" />
         <activity android:name=".GetStartedActivity" />
-        <activity android:name=".StartupActivity">
+        <activity android:name=".StartupActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
