@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
 
-        adapter = new RecyclerAdapter();
+        adapter = new Aqt_Card_Recycler_Adapter();
         recyclerView.setAdapter(adapter);
     }
 
