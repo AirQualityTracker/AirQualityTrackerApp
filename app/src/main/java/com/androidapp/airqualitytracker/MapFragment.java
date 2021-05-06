@@ -11,6 +11,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -27,6 +28,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private View mView;
 
     @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.map_fragment, container, false);
@@ -36,7 +38,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public void onViewCreated(@NonNull View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         mMapView = (MapView) mView.findViewById(R.id.AQT_MAP);
         if(mMapView != null){
             mMapView.onCreate(null);

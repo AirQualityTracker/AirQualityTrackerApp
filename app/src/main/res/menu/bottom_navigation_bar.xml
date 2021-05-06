@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_my_city"
-        android:icon="@drawable/ic_baseline_my_city_24"
-        android:title="@string/my_city" />
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/home" />
     <item
         android:id="@+id/nav_map"
         android:icon="@drawable/ic_baseline_map_24"
         android:title="@string/map" />
-    <item
-        android:id="@+id/nav_ranking"
-        android:icon="@drawable/ic_baseline_rank_chart_24"
-        android:title="@string/ranking" />
+
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/search" />
+
+    <item
+        android:id="@+id/nav_menu"
+        android:icon="@drawable/ic_baseline_menu_24"
+        android:title="@string/menu">
+    </item>
+
+
 </menu>

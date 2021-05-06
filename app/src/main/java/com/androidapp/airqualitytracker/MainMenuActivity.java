@@ -3,23 +3,22 @@ package com.androidapp.airqualitytracker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigation;
 
 import android.annotation.SuppressLint;
-import android.content.ClipData;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.gms.maps.SupportMapFragment;
+import com.androidapp.airqualitytracker.submenuFragments.HelpFragment;
+import com.androidapp.airqualitytracker.submenuFragments.NotificationsFragment;
+import com.androidapp.airqualitytracker.submenuFragments.RankFragment;
+import com.androidapp.airqualitytracker.submenuFragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 public class MainMenuActivity extends AppCompatActivity {
     View topNavView;
@@ -51,26 +50,27 @@ public class MainMenuActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
                     switch (item.getItemId()) {
-                        case R.id.nav_my_city:
+                        case R.id.nav_home:
                             selectedFragment = new HomeFragment();
                             break;
                         case R.id.nav_map:
                             selectedFragment = new MapFragment();
                             break;
-                        case R.id.nav_ranking:
-                            selectedFragment = new RankFragment();
-                            break;
                         case R.id.nav_search:
                             selectedFragment = new SearchFragment();
                             break;
-                    }
+                        case R.id.nav_menu:
+                            showPopup();
+                            break;
 
+                    }
+                if(selectedFragment != null) {
                     FragmentManager ftMan = getSupportFragmentManager();
                     FragmentTransaction ftTrans = ftMan.beginTransaction();
                     ftTrans.replace(R.id.fragment_container,
                             selectedFragment);
                     ftTrans.commit();
-
+                }
 
                     return true;
                 }
@@ -85,19 +85,53 @@ public class MainMenuActivity extends AppCompatActivity {
 
 
 
-    @SuppressLint("ResourceType")
+ /*   @SuppressLint("ResourceType")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.addSubMenu(R.menu.top_navigation_bar_sub_menu);
+        menu.addSubMenu(R.menu.bottom_navigation_bar_sub_menu);
         return true;
-    }
+    }*/
 
 
 
-    public void showPopup(View v) {
-        PopupMenu popup = new PopupMenu(this, v);
+    public void showPopup() {
+        View view = findViewById(R.id.nav_menu);
+        PopupMenu popup = new PopupMenu(this, view);
         MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.top_navigation_bar, popup.getMenu());
+        inflater.inflate(R.menu.bottom_navigation_bar_sub_menu, popup.getMenu());
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                Fragment selectedFragment = null;
+                switch (item.getItemId()) {
+                    case R.id.nav_sub_menu_rank:
+                        selectedFragment = new RankFragment();
+
+                    case R.id.nav_sub_menu_help:
+                        selectedFragment = new HelpFragment();
+                        break;
+
+                    case R.id.nav_sub_menu_notifications:
+                        selectedFragment = new NotificationsFragment();
+                        break;
+                    case R.id.nav_sub_menu_settings:
+                        selectedFragment = new SettingsFragment();
+                        break;
+
+                    default:
+                        break;
+
+                }
+                if(selectedFragment != null) {
+                    FragmentManager ftMan = getSupportFragmentManager();
+                    FragmentTransaction ftTrans = ftMan.beginTransaction();
+                    ftTrans.replace(R.id.fragment_container,
+                            selectedFragment);
+                    ftTrans.commit();
+                }
+                return true;
+            }
+        });
         popup.show();
     }
 

@@ -91,6 +91,10 @@ public class Aqt_Card_Recycler_Adapter extends RecyclerView.Adapter<Aqt_Card_Rec
         ArrayList<AQT_CARD_DATA> aqt_card_data_array = new ArrayList<>();
         AQT_CARD_DATA aqt_card_data1 = new AQT_CARD_DATA();
         AQT_CARD_DATA aqt_card_data2 = new AQT_CARD_DATA();
+        AQT_CARD_DATA aqt_card_data3 = new AQT_CARD_DATA();
+        AQT_CARD_DATA aqt_card_data4 = new AQT_CARD_DATA();
+        AQT_CARD_DATA aqt_card_data5 = new AQT_CARD_DATA();
+        AQT_CARD_DATA aqt_card_data6 = new AQT_CARD_DATA();
         aqt_card_data1.setFace_image(image);
         aqt_card_data1.setDegrees_celsius_image(image);
         aqt_card_data1.setAir_km_h_image(image);
@@ -116,9 +120,56 @@ public class Aqt_Card_Recycler_Adapter extends RecyclerView.Adapter<Aqt_Card_Rec
         aqt_card_data2.setAtmosphere_humidity(atmosphere_humidity);
 
 
+        aqt_card_data3.setFace_image(image);
+        aqt_card_data3.setDegrees_celsius_image(image);
+        aqt_card_data3.setAir_km_h_image(image);
+        aqt_card_data3.setAtmosphere_humidity_image(image);
+        aqt_card_data3.setQuality_indicator(quality_indicator);
+        aqt_card_data3.setQuality_assessment(quality_assessment);
+        aqt_card_data3.setDegrees_celsius(degrees_celsius);
+        aqt_card_data3.setAir_km_h(air_km_h);
+        aqt_card_data3.setAtmosphere_humidity(atmosphere_humidity);
+
+
+        aqt_card_data4.setFace_image(image);
+        aqt_card_data4.setDegrees_celsius_image(image);
+        aqt_card_data4.setAir_km_h_image(image);
+        aqt_card_data4.setAtmosphere_humidity_image(image);
+        aqt_card_data4.setQuality_indicator(quality_indicator);
+        aqt_card_data4.setQuality_assessment(quality_assessment);
+        aqt_card_data4.setDegrees_celsius(degrees_celsius);
+        aqt_card_data4.setAir_km_h(air_km_h);
+        aqt_card_data4.setAtmosphere_humidity(atmosphere_humidity);
+
+
+        aqt_card_data5.setFace_image(image);
+        aqt_card_data5.setDegrees_celsius_image(image);
+        aqt_card_data5.setAir_km_h_image(image);
+        aqt_card_data5.setAtmosphere_humidity_image(image);
+        aqt_card_data5.setQuality_indicator(quality_indicator);
+        aqt_card_data5.setQuality_assessment(quality_assessment);
+        aqt_card_data5.setDegrees_celsius(degrees_celsius);
+        aqt_card_data5.setAir_km_h(air_km_h);
+        aqt_card_data5.setAtmosphere_humidity(atmosphere_humidity);
+
+
+        aqt_card_data6.setFace_image(image);
+        aqt_card_data6.setDegrees_celsius_image(image);
+        aqt_card_data6.setAir_km_h_image(image);
+        aqt_card_data6.setAtmosphere_humidity_image(image);
+        aqt_card_data6.setQuality_indicator(quality_indicator);
+        aqt_card_data6.setQuality_assessment(quality_assessment);
+        aqt_card_data6.setDegrees_celsius(degrees_celsius);
+        aqt_card_data6.setAir_km_h(air_km_h);
+        aqt_card_data6.setAtmosphere_humidity(atmosphere_humidity);
+
+
         aqt_card_data_array.add(aqt_card_data1);
         aqt_card_data_array.add(aqt_card_data2);
-
+        aqt_card_data_array.add(aqt_card_data3);
+        aqt_card_data_array.add(aqt_card_data4);
+        aqt_card_data_array.add(aqt_card_data5);
+        aqt_card_data_array.add(aqt_card_data6);
 
         return aqt_card_data_array;
 
