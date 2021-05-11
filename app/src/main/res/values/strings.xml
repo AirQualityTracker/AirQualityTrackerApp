@@ -6,7 +6,7 @@
         location to provide</string>
     <string name="find_my_location">Find my location</string>
     <string name="skip_find_location"><u>skip</u></string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_username">Username</string>
     <string name="enter_password">Password</string>
@@ -25,7 +25,6 @@
     <string name="help">Help</string>
     <string name="sign_in">Sign in</string>
 
-
     <!-- Setting menu values-->
     <string name="places">Places</string>
     <string name="manage_places">Manage places</string>
@@ -42,7 +41,38 @@
     <!-- Support -->
     <string name="support">Support</string>
     <string name="about_aqt">About Air Quality Tracker</string>
-    <string name="terms_of_use">Terms Of Use and Privacy Policy</string>
+    <string name="terms_of_use">Terms Of Use and Privacy Policy</string>s
 
+    <!-- Card -->
+    <string-array name="quality_assessments">
+        <item>Good</item>
+        <item>Moderate</item>
+        <item>Unhealthy for Sensitive Groups</item>
+        <item>Unhealthy</item>
+        <item>Very Unhealthy</item>
+        <item>Hazardous</item>
+    </string-array>
+
+    <string name="celsius_symbol">°C</string>
+    <string name="fahrenheit_symbol">°F</string>
+    <string name="airspeed_ms">m/s</string>
+    <string name="humidity">%</string>
+
+    <!-- Card Placeholders -->
+    <string name="location_city_placeholder">City</string>
+    <string name="location_county_country_placeholder">County, Country</string>
+    <string name="quality_indicator_placeholder">AQI</string>
+    <string name="quality_assessment_placeholder">Quality</string>
+
+    <string name="temperature_placeholder">Temp</string>
+    <string name="airspeed_placeholder">Air</string>
+    <string name="humidity_placeholder">Hum</string>
+
+    <!-- Card Image Descriptions -->
+    <string name="face_image_description">Quality of Air Face</string>
+    <string name="temperature_image_description">Temperature Icon</string>
+    <string name="airspeed_image_description">Airspeed Icon</string>
+    <string name="humidity_image_description">Humidity Icon</string>
+    <string name="aqt_card_icon_description">AQT Icon</string>
 
 </resources>

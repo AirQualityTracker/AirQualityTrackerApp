@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,17 +21,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainMenuActivity extends AppCompatActivity {
     View topNavView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_activity);
 
 
-
         //Bottom navigation bar actions
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-
 
 
         //I added this if statement to keep the selected fragment when rotating the device
@@ -41,7 +39,6 @@ public class MainMenuActivity extends AppCompatActivity {
                     new HomeFragment()).commit();
         }
     }
-
 
     //Bottom nav bar button listeners
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -64,34 +61,24 @@ public class MainMenuActivity extends AppCompatActivity {
                             break;
 
                     }
-                if(selectedFragment != null) {
-                    FragmentManager ftMan = getSupportFragmentManager();
-                    FragmentTransaction ftTrans = ftMan.beginTransaction();
-                    ftTrans.replace(R.id.fragment_container,
-                            selectedFragment);
-                    ftTrans.commit();
-                }
+                    if (selectedFragment != null) {
+                        FragmentManager ftMan = getSupportFragmentManager();
+                        FragmentTransaction ftTrans = ftMan.beginTransaction();
+                        ftTrans.replace(R.id.fragment_container,
+                                selectedFragment);
+                        ftTrans.commit();
+                    }
 
                     return true;
                 }
             };
 
-
-
-
-
-
-
-
-
-
- /*   @SuppressLint("ResourceType")
+/*   @SuppressLint("ResourceType")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.addSubMenu(R.menu.bottom_navigation_bar_sub_menu);
         return true;
     }*/
-
 
 
     public void showPopup() {
@@ -122,7 +109,7 @@ public class MainMenuActivity extends AppCompatActivity {
                         break;
 
                 }
-                if(selectedFragment != null) {
+                if (selectedFragment != null) {
                     FragmentManager ftMan = getSupportFragmentManager();
                     FragmentTransaction ftTrans = ftMan.beginTransaction();
                     ftTrans.replace(R.id.fragment_container,
@@ -134,7 +121,5 @@ public class MainMenuActivity extends AppCompatActivity {
         });
         popup.show();
     }
-
-
 
 }

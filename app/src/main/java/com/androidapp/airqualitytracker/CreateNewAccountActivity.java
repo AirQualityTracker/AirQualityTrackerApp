@@ -28,7 +28,7 @@ public class CreateNewAccountActivity extends AppCompatActivity {
 
     //This method is used to create the users account when registered
     public void createNewAccount() {
-        Boolean userAddedSuccessfully = addUserToDb();
+        boolean userAddedSuccessfully = addUserToDb();
         //Try to add the user to the db
 
         //**should check if the email has already given**

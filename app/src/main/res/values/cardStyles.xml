@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="card1" parent="CardView">
+        <item name="android:colorBackground">#A8E05F</item>
+    </style>
+    <style name="card2" parent="CardView">
+        <item name="android:colorBackground">#FDD74B</item>
+    </style>
+    <style name="card3" parent="CardView">
+        <item name="android:colorBackground">#FE9B57</item>
+    </style>
+    <style name="card4" parent="CardView">
+        <item name="android:colorBackground">#FE6A69</item>
+    </style>
+    <style name="card5" parent="CardView">
+        <item name="android:colorBackground">#A97ABC</item>
+    </style>
+    <style name="card6" parent="CardView">
+        <item name="android:colorBackground">#A87383</item>
+    </style>
+</resources>

@@ -33,13 +33,13 @@ public class SettingsFragment extends Fragment {
     }
 
 
-   public View showAbout(){
-      /*  Fragment aboutFragment = new AboutAQTFragment();
+   /*public View showAbout(){
+      *//*  Fragment aboutFragment = new AboutAQTFragment();
        FragmentManager ftMan = getSupportFragmentManager();
        FragmentTransaction ftTrans = ftMan.beginTransaction();
        ftTrans.replace(R.id.fragment_container,
                aboutFragment);
-       ftTrans.commit();*/
+       ftTrans.commit();*//*
 
-   }
+   }*/
 }

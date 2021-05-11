@@ -41,8 +41,8 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        Intent i = new Intent(this, CreateNewAccountActivity.class);
-        startActivityForResult(i ,5);
+        //Intent i = new Intent(this, CreateNewAccountActivity.class);
+        //startActivityForResult(i ,5);
     }
 
 
