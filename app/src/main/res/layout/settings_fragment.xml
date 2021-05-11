@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settingsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".submenuFragments.SettingsFragment">
@@ -12,6 +13,7 @@
         android:layout_weight="1">
 
     <TableLayout
+        android:id="@+id/settingsFragmentList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -43,7 +45,7 @@
 
    <!-- Manage plalces -->
         <TableRow
-            android:id="@+id/managePlacesCategory"
+            android:id="@+id/managePlaces"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="7dp"
@@ -54,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:onClick="managePlaces"
+
                 android:text="@string/manage_places"
                 android:textSize="20sp" />
         </TableRow>
