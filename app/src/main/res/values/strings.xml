@@ -74,5 +74,7 @@
     <string name="airspeed_image_description">Airspeed Icon</string>
     <string name="humidity_image_description">Humidity Icon</string>
     <string name="aqt_card_icon_description">AQT Icon</string>
+    <string name="snackbar_card_deleted">Location deleted</string>
+    <string name="snackbar_card_undo">Undo</string>
 
 </resources>
