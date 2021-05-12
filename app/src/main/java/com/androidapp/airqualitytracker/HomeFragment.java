@@ -1,6 +1,5 @@
 package com.androidapp.airqualitytracker;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,9 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import org.jetbrains.annotations.NotNull;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class HomeFragment extends Fragment {
@@ -39,28 +37,26 @@ public class HomeFragment extends Fragment {
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
-            public boolean onMove(@NonNull @NotNull RecyclerView recyclerView, @NonNull @NotNull RecyclerView.ViewHolder viewHolder, @NonNull @NotNull RecyclerView.ViewHolder target) {
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
 
             @Override
-            public void onSwiped(@NonNull @NotNull RecyclerView.ViewHolder viewHolder, int direction) {
-                //cardViewModel.delete(adapter.getCardAt(viewHolder.getAbsoluteAdapterPosition()));
-                AlertDialog.Builder builder = new AlertDialog.Builder(container.getContext()).setTitle("Remove Location").setMessage("Are you sure you want to remove this location?");
-                builder.setPositiveButton("OK", (dialog, arg) -> {
-                    dialog.cancel();
-                    cardViewModel.delete(adapter.getCardAt(viewHolder.getAbsoluteAdapterPosition()));
-                    Toast.makeText(container.getContext(), "Location Deleted", Toast.LENGTH_SHORT).show();
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAbsoluteAdapterPosition();
+                Card cardToDelete = adapter.getCardAt(position);
+
+                cardViewModel.delete(cardToDelete);
+
+                Snackbar snackbar = Snackbar.make(view, R.string.snackbar_card_deleted, Snackbar.LENGTH_LONG);
+                snackbar.setAction(R.string.snackbar_card_undo, v -> {
+                    cardViewModel.insert(cardToDelete);
                 });
-                builder.setNegativeButton("CANCEL", (dialog, arg) -> {
-                    dialog.cancel();
-                    adapter.notifyDataSetChanged();
-                });
-                builder.create().show();
+                snackbar.show();
             }
+
         }).attachToRecyclerView(recyclerView);
 
         return view;
     }
-
 }
