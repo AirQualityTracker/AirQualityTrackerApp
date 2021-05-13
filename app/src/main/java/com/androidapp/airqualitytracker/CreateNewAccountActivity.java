@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
+/*
 public class CreateNewAccountActivity extends AppCompatActivity {
 
     EditText objEditTextEmailRegister , objEditTextUsernameRegister , objEditTextPasswordRegister;
@@ -90,3 +90,4 @@ public class CreateNewAccountActivity extends AppCompatActivity {
         return false;
     }
 }
+*/

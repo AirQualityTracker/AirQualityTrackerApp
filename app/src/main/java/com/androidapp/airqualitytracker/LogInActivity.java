@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+/*
 public class LogInActivity extends AppCompatActivity {
 
     EditText objEditTextUsername , objEditTextPassword;
@@ -82,3 +82,4 @@ public class LogInActivity extends AppCompatActivity {
 
 
 }
+*/
