@@ -49,9 +49,7 @@ public class HomeFragment extends Fragment {
                 cardViewModel.delete(cardToDelete);
 
                 Snackbar snackbar = Snackbar.make(view, R.string.snackbar_card_deleted, Snackbar.LENGTH_LONG);
-                snackbar.setAction(R.string.snackbar_card_undo, v -> {
-                    cardViewModel.insert(cardToDelete);
-                });
+                snackbar.setAction(R.string.snackbar_card_undo, v -> cardViewModel.insert(cardToDelete));
                 snackbar.show();
             }
 
