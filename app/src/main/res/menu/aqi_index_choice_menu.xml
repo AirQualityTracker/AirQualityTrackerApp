@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+
+            android:id="@+id/us_aqi_index"
+            android:title="@string/us_aqi_index" />
+
+        <item
+            android:id="@+id/cn_aqi_index"
+            android:title="@string/cn_aqi_index"
+            />
+    </group>
+</menu>

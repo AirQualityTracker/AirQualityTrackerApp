@@ -32,17 +32,29 @@
 
     <!-- User preferences -->
     <string name="user_preferences">User preferences</string>
-    <string name="aqt_index">AQT Index</string>
+    <string name="aqi_index">AQT Index</string>
+    <!-- aqi index choice -->
+    <string name="us_aqi_index">US AQI</string>
+    <string name="cn_aqi_index">CN AQI</string>
     <string name="unit_system">Unit system</string>
+    <!-- unit system choice -->
+    <string name="metric">Metric(Celsius, milibar, kilometer)</string>
+    <string name="imperial">Imperial(Fahrenheit, Hg, miles)</string>
+
     <string name="system_permissions">System permissions</string>
     <!-- Notifications -->
     <string name="smart_notifications">Smart notifications</string>
+    <string name="smart_notifications_more_info">Receive pollution alerts and recommendations when the air
+     quality is improving or getting worse for your health</string>
+    <string name="receive_smart_notifications">Receive Smart notifications</string>
     <string name="daily_report">Daily report</string>
 
     <!-- Support -->
     <string name="support">Support</string>
     <string name="about_aqt">About Air Quality Tracker</string>
     <string name="terms_of_use">Terms Of Use and Privacy Policy</string>
+
+
 
 
 </resources>

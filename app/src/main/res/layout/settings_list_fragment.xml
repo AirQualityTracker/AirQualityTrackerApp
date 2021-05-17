@@ -56,9 +56,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="7dp"
-            android:layout_marginLeft="20dp">
+            android:layout_marginLeft="20dp"
+            >
 
-            <TextView
+           <TextView
                 android:id="@+id/managePlaces"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,6 +68,7 @@
                 android:color="#3A8969"
                 android:text="@string/manage_places"
                 android:textSize="20sp" />
+
         </TableRow>
 
 
@@ -87,41 +89,78 @@
                 android:textSize="15sp" />
 
         </TableRow>
-
+        <!-- Aqi Index -->
         <TableRow
-            android:id="@+id/aqtIndex"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="7dp"
             android:layout_marginLeft="20dp">
 
             <TextView
+                android:id="@+id/aqiIndex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="@string/aqi_index"
+                android:textSize="20sp"
+                />
+
+        </TableRow>
+
+        <!-- aqi index info -->
+        <TableRow
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="30dp">
+
+            <TextView
+                android:id="@+id/aqiIndexInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:clickable="true"
-                android:text="@string/aqt_index"
-                android:textSize="20sp"
-                android:onClick="changeAqtIndex"/>
-        </TableRow>
+                android:textSize="12sp"
+                />
 
+        </TableRow>
+         <!-- Unit System -->
         <TableRow
-            android:id="@+id/unitSystem"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="7dp"
             android:layout_marginLeft="20dp">
 
             <TextView
+                android:id="@+id/unitSystem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:clickable="true"
                 android:text="@string/unit_system"
                 android:textSize="20sp"
-                android:onClick="changeUnitSystem"/>
+                />
         </TableRow>
+          <!-- unit system info -->
+        <TableRow
 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="30dp">
+
+            <TextView
+                android:id="@+id/unitSystemInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textSize="12sp"
+                />
+
+        </TableRow>
+        <!-- System Permissions -->
         <TableRow
             android:id="@+id/systemPermissions"
             android:layout_width="match_parent"
@@ -135,8 +174,7 @@
 
                 android:clickable="true"
                 android:text="@string/system_permissions"
-                android:textSize="20sp"
-                android:onClick="changeSystemPermissions"/>
+                android:textSize="20sp" />
         </TableRow>
 
 
@@ -160,18 +198,41 @@
         <TableRow
             android:id="@+id/smartNotifications"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:layout_marginLeft="20dp">
 
-            <TextView
+            <CheckBox
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:autoSizeTextType="uniform"
+                android:breakStrategy="balanced"
+                android:autoSizeMaxTextSize="24sp"
+                android:autoSizeMinTextSize="12sp"
                 android:clickable="true"
                 android:text="@string/smart_notifications"
                 android:textSize="20sp"
-                android:onClick="applySmartNotifications"/>
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+
+                />
+        </TableRow>
+<!-- smart notifications more info -->
+        <TableRow
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="30dp">
+
+            <TextView
+                android:id="@+id/smartNotificationsInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/smart_notifications_more_info"
+                android:textSize="12sp"
+                />
+
         </TableRow>
 
         <TableRow
