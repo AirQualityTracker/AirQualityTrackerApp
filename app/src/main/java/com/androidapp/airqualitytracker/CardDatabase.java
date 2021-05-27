@@ -13,37 +13,37 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
  and connects the entities to their corresponding DAO.*/
 // FIXME: Replace Deprecated Methods
 //@SuppressWarnings("deprecation")
-@Database(entities = Card.class, version = 2, exportSchema = false)
+@Database(entities = Card.class, version = 4, exportSchema = false)
 public abstract class CardDatabase extends RoomDatabase {
 
-    private static CardDatabase instance;
+    private static CardDatabase INSTANCE;
 
     public abstract CardDao cardDao();
 
     // Only one thread at a time can access this method.
     public static synchronized CardDatabase getInstance(Context context) {
-        if (instance == null) {
-            instance = Room.databaseBuilder(context.getApplicationContext(),
+        if (INSTANCE == null) {
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                     CardDatabase.class, "card_database")
                     .fallbackToDestructiveMigration() // To recreate database if version increase.
                     .addCallback(roomCallback)
                     .build();
         }
-        return instance;
+        return INSTANCE;
     }
 
     private static RoomDatabase.Callback roomCallback = new Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-            new PopulateDbAsyncTask(instance).execute();
+            new PopulateDbAsyncTask(INSTANCE).execute();
         }
 
         // FIXME: Remove before production
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-            new PopulateDbAsyncTask(instance).execute();
+            new PopulateDbAsyncTask(INSTANCE).execute();
         }
     };
 
@@ -56,8 +56,9 @@ public abstract class CardDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            cardDao.deleteAllCards();
-            cardDao.insert(new Card("Thessaloniki",
+            /*cardDao.deleteAllCards();
+            cardDao.insert(new Card(
+                    "Thessaloniki",
                     "Central Macedonia",
                     "Greece",
                     45,
@@ -66,7 +67,8 @@ public abstract class CardDatabase extends RoomDatabase {
                     20,
                     50
             ));
-            cardDao.insert(new Card("Los Angeles",
+            cardDao.insert(new Card(
+                    "Los Angeles",
                     "California",
                     "USA",
                     76,
@@ -75,7 +77,8 @@ public abstract class CardDatabase extends RoomDatabase {
                     30,
                     43
             ));
-            cardDao.insert(new Card("Sonota",
+            cardDao.insert(new Card(
+                    "Sonota",
                     "Oita",
                     "Japan",
                     112,
@@ -84,7 +87,8 @@ public abstract class CardDatabase extends RoomDatabase {
                     40,
                     57
             ));
-            cardDao.insert(new Card("Port Harcourt",
+            cardDao.insert(new Card(
+                    "Port Harcourt",
                     "Rivers",
                     "Nigeria",
                     196,
@@ -93,7 +97,8 @@ public abstract class CardDatabase extends RoomDatabase {
                     30,
                     65
             ));
-            cardDao.insert(new Card("St. John's",
+            cardDao.insert(new Card(
+                    "St. John's",
                     "Newfoundland",
                     "Canada",
                     214,
@@ -102,7 +107,8 @@ public abstract class CardDatabase extends RoomDatabase {
                     25,
                     39
             ));
-            cardDao.insert(new Card("Beijing",
+            cardDao.insert(new Card(
+                    "Beijing",
                     "Beijing",
                     "China",
                     288,
@@ -110,7 +116,7 @@ public abstract class CardDatabase extends RoomDatabase {
                     29,
                     15,
                     44
-            ));
+            ));*/
 
             return null;
         }

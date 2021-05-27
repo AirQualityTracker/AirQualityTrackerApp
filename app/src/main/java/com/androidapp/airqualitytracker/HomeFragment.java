@@ -27,13 +27,13 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        //recyclerView.setHasFixedSize(true);
 
         CardAdapter adapter = new CardAdapter();
         recyclerView.setAdapter(adapter);
 
         cardViewModel = new ViewModelProvider(requireActivity()).get(CardViewModel.class);
-        cardViewModel.getAllCards().observe(getViewLifecycleOwner(), adapter::setCards);
+        //networkRequest();
+        cardViewModel.getAllCards().observe(getViewLifecycleOwner(), adapter::submitList);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -57,4 +57,36 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
+    /*private void networkRequest() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://api.airvisual.com/v2/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        AirVisualApi api = retrofit.create(AirVisualApi.class);
+
+        Call<List<Card>> call = api.getCards();
+
+        call.enqueue(new Callback<List<Card>>() {
+            @Override
+            public void onResponse(Call<List<Card>> call, Response<List<Card>> response) {
+                if (!response.isSuccessful()) {
+                    Log.println(Log.ERROR, "Response failure: ", String.valueOf(response.code()));
+                    return;
+                }
+
+                List<Card> cards = response.body();
+
+                for (Card card : cards) {
+                    cardViewModel.insert(card);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Card>> call, Throwable t) {
+                Log.println(Log.ERROR, "Call failure: ", t.getMessage());
+            }
+        });
+    }*/
 }

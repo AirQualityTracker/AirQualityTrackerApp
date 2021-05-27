@@ -35,18 +35,18 @@
             android:text="@string/location_city_placeholder"
             android:textSize="20sp"
             android:textStyle="bold"
-            card_view:layout_constraintBottom_toTopOf="@+id/location_county_country"
+            card_view:layout_constraintBottom_toTopOf="@+id/location_state_country"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintEnd_toStartOf="@+id/imageView2"
             card_view:layout_constraintStart_toEndOf="@+id/face_image"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/location_county_country"
+            android:id="@+id/location_state_country"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center|start"
-            android:text="@string/location_county_country_placeholder"
+            android:text="@string/location_state_country_placeholder"
             android:textStyle="italic"
             card_view:layout_constraintBottom_toTopOf="@+id/quality_indicator"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
             card_view:layout_constraintBottom_toBottomOf="@+id/face_image"
             card_view:layout_constraintEnd_toStartOf="@id/quality_assessment"
             card_view:layout_constraintStart_toEndOf="@id/face_image"
-            card_view:layout_constraintTop_toBottomOf="@+id/location_county_country" />
+            card_view:layout_constraintTop_toBottomOf="@+id/location_state_country" />
 
         <TextView
             android:id="@+id/quality_assessment"
@@ -85,7 +85,7 @@
             card_view:layout_constraintBottom_toBottomOf="@+id/face_image"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toEndOf="@id/quality_indicator"
-            card_view:layout_constraintTop_toBottomOf="@+id/location_county_country" />
+            card_view:layout_constraintTop_toBottomOf="@+id/location_state_country" />
 
         <ImageView
             android:id="@+id/temperature_image"
@@ -117,22 +117,22 @@
             android:id="@+id/airspeed_image"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:contentDescription="@string/airspeed_image_description"
+            android:contentDescription="@string/windspeed_image_description"
             android:scaleType="center"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toStartOf="@id/airspeed"
+            card_view:layout_constraintEnd_toStartOf="@id/windspeed"
             card_view:layout_constraintStart_toEndOf="@id/degrees"
             card_view:layout_constraintTop_toBottomOf="@id/quality_indicator"
             card_view:layout_constraintVertical_bias="0.0"
             card_view:srcCompat="@drawable/card_ic_airspeed" />
 
         <TextView
-            android:id="@+id/airspeed"
+            android:id="@+id/windspeed"
             android:layout_width="0dp"
             android:layout_height="40dp"
 
             android:gravity="start|center_vertical"
-            android:text="@string/airspeed_placeholder"
+            android:text="@string/windspeed_placeholder"
             android:textSize="16sp"
             android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="parent"
@@ -148,7 +148,7 @@
             android:scaleType="center"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toStartOf="@id/humidity"
-            card_view:layout_constraintStart_toEndOf="@id/airspeed"
+            card_view:layout_constraintStart_toEndOf="@id/windspeed"
             card_view:layout_constraintTop_toBottomOf="@id/quality_assessment"
             card_view:srcCompat="@drawable/card_ic_humidity" />
 
@@ -174,7 +174,7 @@
             android:layout_marginRight="4dp"
             android:contentDescription="@string/aqt_card_icon_description"
             android:scaleType="centerCrop"
-            card_view:layout_constraintBottom_toTopOf="@+id/location_county_country"
+            card_view:layout_constraintBottom_toTopOf="@+id/location_state_country"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/location_city"
             card_view:layout_constraintTop_toTopOf="parent"

@@ -8,10 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="card1">#FFA8E05F</color>
-    <color name="card2">#FFFDD74B</color>
-    <color name="card3">#FFFE9B57</color>
-    <color name="card4">#FFFE6A69</color>
-    <color name="card5">#FFA97ABC</color>
-    <color name="card6">#FFA87383</color>
+    <color name="card_0">#FFA8E05F</color>
+    <color name="card_1">#FFFDD74B</color>
+    <color name="card_2">#FFFE9B57</color>
+    <color name="card_3">#FFFE6A69</color>
+    <color name="card_4">#FFA97ABC</color>
+    <color name="card_5">#FFA87383</color>
+
 </resources>

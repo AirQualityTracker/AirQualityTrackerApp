@@ -1,36 +1,74 @@
 package com.androidapp.airqualitytracker;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
 
 /* Room generates all the necessary code to create an SQLite table
  for this object using appropriate annotations.*/
 @Entity(tableName = "card_table")
-public class Card {
+public class Card implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private final String city, county, country;
+    private final String city, state, country;
 
-    private int aqiUS, aqiCN;
-    private int degrees, airspeed, humidity;
+    private int aqius;
+    private int aqicn;
+
+    @SerializedName("tp")
+    private int degrees;
+
+    @SerializedName("ws")
+    private int windspeed;
+
+    @SerializedName("hu")
+    private int humidity;
     private int severityCategory;
 
-    public Card(String city, String county, String country, int aqiUS, int aqiCN, int degrees, int airspeed, int humidity) {
+    public Card(String city, String state, String country, int aqius, int aqicn, int degrees, int windspeed, int humidity) {
         this.city = city;
-        this.county = county;
+        this.state = state;
         this.country = country;
 
-        this.aqiUS = aqiUS;
-        this.aqiCN = aqiCN;
+        this.aqius = aqius;
+        this.aqicn = aqicn;
 
         this.degrees = degrees;
-        this.airspeed = airspeed;
+        this.windspeed = windspeed;
         this.humidity = humidity;
 
-        this.severityCategory = calcSeverity(aqiUS);
+        this.severityCategory = calcSeverity(aqius);
     }
+
+    protected Card(Parcel in) {
+        id = in.readInt();
+        city = in.readString();
+        state = in.readString();
+        country = in.readString();
+        aqius = in.readInt();
+        aqicn = in.readInt();
+        degrees = in.readInt();
+        windspeed = in.readInt();
+        humidity = in.readInt();
+        severityCategory = in.readInt();
+    }
+
+    public static final Creator<Card> CREATOR = new Creator<Card>() {
+        @Override
+        public Card createFromParcel(Parcel in) {
+            return new Card(in);
+        }
+
+        @Override
+        public Card[] newArray(int size) {
+            return new Card[size];
+        }
+    };
 
     private int calcSeverity(int aqi) {
         int severity;
@@ -57,28 +95,28 @@ public class Card {
         return city;
     }
 
-    public String getCounty() {
-        return county;
+    public String getState() {
+        return state;
     }
 
     public String getCountry() {
         return country;
     }
 
-    public int getAqiUS() {
-        return aqiUS;
+    public int getAqius() {
+        return aqius;
     }
 
-    public int getAqiCN() {
-        return aqiCN;
+    public int getAqicn() {
+        return aqicn;
     }
 
     public int getDegrees() {
         return degrees;
     }
 
-    public int getAirspeed() {
-        return airspeed;
+    public int getWindspeed() {
+        return windspeed;
     }
 
     public int getHumidity() {
@@ -91,5 +129,24 @@ public class Card {
 
     public void setSeverityCategory(int severityCategory) {
         this.severityCategory = severityCategory;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(city);
+        dest.writeString(state);
+        dest.writeString(country);
+        dest.writeInt(aqius);
+        dest.writeInt(aqicn);
+        dest.writeInt(degrees);
+        dest.writeInt(windspeed);
+        dest.writeInt(humidity);
+        dest.writeInt(severityCategory);
     }
 }
