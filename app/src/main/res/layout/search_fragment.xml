@@ -5,11 +5,32 @@
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchBarView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_place"
+            android:layout_weight="1"
+            android:hint="place:" />
+
+        <Button
+            android:id="@+id/bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="City"></TextView>
 
 
 
