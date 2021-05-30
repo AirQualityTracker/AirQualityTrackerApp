@@ -123,10 +123,10 @@ public class SearchFragment extends Fragment {
                 InputStream inputStream = httpURLConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-                String line = "d";
+                String line = "";
                 while (line != null) {
                     line = bufferedReader.readLine();
-                    data = data + line + 'd';
+                    data = data + line ;
                 }
 
 
@@ -157,18 +157,7 @@ public class SearchFragment extends Fragment {
                 country = jsonObject1.get("country").toString();
 
 
-            /*
-            JSONArray jsonArray = new JSONArray(data);
-            for (int i=0;i <jsonArray.length(); i++){
-                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-                datareturned= jsonObject.get("current") + "\n"+
-                              jsonObject.get("pollution") +  "\n" +
-                              jsonObject.get("wd");
 
-            }
-
-
-             */
 
 
             } catch (MalformedURLException e) {

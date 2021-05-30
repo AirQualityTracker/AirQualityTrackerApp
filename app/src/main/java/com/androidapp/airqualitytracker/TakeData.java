@@ -1,5 +1,5 @@
-/*
 package com.androidapp.airqualitytracker;
+
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -20,10 +20,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-*/
+
+
+
 /**
  * This class is used to get the data of every card from the airvisual api
-* *//*
+* */
 
 
 public class TakeData extends AsyncTask<Void, Void, Void> {
@@ -79,8 +81,12 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
             //Save country
             country = jsonObject1.get("country").toString();
 
+            datareturned += "City: " + city + "\n" + "State: " + state + "\n" + "Country: " + country + "\n" + "Wind Speed:" + ws + "\n" + "Humidity: " + hu + "\n" + "Temperature: " + tp + "\n" + "Aqi: " + aqius;
 
-            */
+
+
+
+           /*
 /*
             JSONArray jsonArray = new JSONArray(data);
             for (int i=0;i <jsonArray.length(); i++){
@@ -92,7 +98,7 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
             }
 
 
-             *//*
+             */
 
 
 
@@ -115,9 +121,10 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid){
         super.onPostExecute(aVoid);
 
-        Card card = new Card(city , state, country, Integer.parseInt(aqius), Integer.parseInt(aqicn), Integer.parseInt(tp), Integer.parseInt(ws) , Integer.parseInt(hu) , Integer.parseInt(latitude), Integer.parseInt(longitude));
-
+        //Card card = new Card(city , state, country, Integer.parseInt(aqius), Integer.parseInt(aqicn), Integer.parseInt(tp), Integer.parseInt(ws) , Integer.parseInt(hu) , Integer.parseInt(latitude), Integer.parseInt(longitude));
         //SearchFragment.textView.setText(this.datareturned);
+
+        MapFragment.textView1.setText(this.datareturned);
     }
 }
-*/
+
