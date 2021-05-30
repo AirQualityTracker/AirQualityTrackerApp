@@ -50,7 +50,8 @@
 
     <!-- Support -->
     <string name="support">Support</string>
-    <string name="about_aqt">About Air Quality Tracker</string>
+    <string name="about_text">Created for Mobile App Development 2021</string>
+    <string name="help_text">Add a location from the search tab or by using your location in the map tab. You can drag locations to change their order and swipe left or right to delete them.</string>
     <string name="terms_of_use">Terms Of Use and Privacy Policy</string>s
 
     <!-- Card -->

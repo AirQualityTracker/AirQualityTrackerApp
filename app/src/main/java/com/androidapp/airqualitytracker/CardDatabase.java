@@ -14,7 +14,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
  * */
 
 @SuppressWarnings("deprecation")
-@Database(entities = Card.class, version = 6, exportSchema = false)
+@Database(entities = Card.class, version = 7, exportSchema = false)
 public abstract class CardDatabase extends RoomDatabase {
 
     private static CardDatabase INSTANCE;
@@ -57,80 +57,6 @@ public abstract class CardDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            cardDao.deleteAllCards();
-            cardDao.insert(new Card(
-                    "Thessaloniki",
-                    "Central Macedonia",
-                    "Greece",
-                    45,
-                    20,
-                    23,
-                    20,
-                    50,
-                    0,
-                    0
-            ));
-            cardDao.insert(new Card(
-                    "Los Angeles",
-                    "California",
-                    "USA",
-                    76,
-                    20,
-                    15,
-                    30,
-                    43,
-                    0,
-                    0
-            ));
-            cardDao.insert(new Card(
-                    "Sonota",
-                    "Oita",
-                    "Japan",
-                    112,
-                    20,
-                    19,
-                    40,
-                    57,
-                    0,
-                    0
-            ));
-            cardDao.insert(new Card(
-                    "Port Harcourt",
-                    "Rivers",
-                    "Nigeria",
-                    196,
-                    20,
-                    32,
-                    30,
-                    65,
-                    0,
-                    0
-            ));
-            cardDao.insert(new Card(
-                    "St. John's",
-                    "Newfoundland",
-                    "Canada",
-                    214,
-                    20,
-                    26,
-                    25,
-                    39,
-                    0,
-                    0
-            ));
-            cardDao.insert(new Card(
-                    "Beijing",
-                    "Beijing",
-                    "China",
-                    288,
-                    20,
-                    29,
-                    15,
-                    44,
-                    0,
-                    0
-            ));
-
             return null;
         }
     }

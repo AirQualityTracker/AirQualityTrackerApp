@@ -298,7 +298,7 @@
 
                 android:clickable="true"
                 android:textSize="20sp"
-                android:text="@string/about_aqt"
+                android:text="@string/about"
                 android:onClick="showAbout"/>
         </TableRow>
 
