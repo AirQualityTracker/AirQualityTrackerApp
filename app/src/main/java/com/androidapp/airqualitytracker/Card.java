@@ -15,17 +15,17 @@ public class Card {
     private final int aqius;
     private final int aqicn;
 
-    private final int degrees;
+    private final double degrees;
 
-    private final int windspeed;
+    private final double windspeed;
 
-    private final int humidity;
+    private final double humidity;
     private int severityCategory;
 
     private final double latitude;
     private final double longitude;
 
-    public Card(String city, String state, String country, int aqius, int aqicn, int degrees, int windspeed, int humidity, double latitude, double longitude) {
+    public Card(String city, String state, String country, int aqius, int aqicn, double degrees, double windspeed, double humidity, double latitude, double longitude) {
         this.city = city;
         this.state = state;
         this.country = country;
@@ -84,15 +84,15 @@ public class Card {
         return aqicn;
     }
 
-    public int getDegrees() {
+    public double getDegrees() {
         return degrees;
     }
 
-    public int getWindspeed() {
+    public double getWindspeed() {
         return windspeed;
     }
 
-    public int getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 

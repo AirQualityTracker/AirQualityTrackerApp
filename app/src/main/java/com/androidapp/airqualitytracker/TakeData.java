@@ -1,14 +1,8 @@
 package com.androidapp.airqualitytracker;
 
-import android.app.Activity;
 import android.os.AsyncTask;
-import android.util.JsonReader;
-import android.view.LayoutInflater;
 import android.view.View;
 
-import androidx.cardview.widget.CardView;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,8 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class TakeData extends AsyncTask<Void, Void, Void> {
-
+public class TakeData extends AsyncTask<Void, Void, Card> {
     String latitude = "" , longitude = "" , data="" , datareturned= "";
     String city, state , country , ws, hu, tp, aqius, aqicn;
 
@@ -30,9 +23,8 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
         this.longitude = longitude;
     }
 
-
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected Card doInBackground(Void... voids) {
         try {
             URL url = new URL("https://api.airvisual.com/v2/nearest_city?lat="+latitude+"&lon="+longitude+"&key=aaa37172-9f2d-43bc-aca0-a2edc3417e9a");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -98,16 +90,15 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
             datareturned = "error3";
         }
 
-
-        return null;
+        return new Card(city, state, country, Integer.parseInt(aqius), Integer.parseInt(aqicn), Double.parseDouble(tp), Double.parseDouble(ws) , Double.parseDouble(hu) , Double.parseDouble(latitude), Double.parseDouble(longitude));
     }
 
     @Override
-    protected void onPostExecute(Void aVoid){
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(Card card){
+        super.onPostExecute(card);
 
-        Card card = new Card(city , state, country, Integer.parseInt(aqius), Integer.parseInt(aqicn), Integer.parseInt(tp), Integer.parseInt(ws) , Integer.parseInt(hu) , Integer.parseInt(latitude), Integer.parseInt(longitude));
 
-        //SearchFragment.textView.setText(this.datareturned);
+
+        SearchFragment.textView.setText(datareturned);
     }
 }

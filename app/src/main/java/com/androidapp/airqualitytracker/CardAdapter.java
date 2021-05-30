@@ -68,9 +68,9 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
         holder.quality_indicator.setText(String.valueOf(currentCard.getAqius()));
         holder.quality_assessment.setText(qualityAssessments[currentCard.getSeverityCategory()]);
 
-        holder.degrees.setText(String.format(Locale.ENGLISH, "%1$d %2$s", currentCard.getDegrees(), context.getResources().getString(R.string.celsius_symbol)));
-        holder.windspeed.setText(String.format(Locale.ENGLISH, "%1$d %2$s", currentCard.getWindspeed(), context.getResources().getString(R.string.airspeed_ms)));
-        holder.humidity.setText(String.format(Locale.ENGLISH, "%1$d %2$s", currentCard.getHumidity(), context.getResources().getString(R.string.humidity)));
+        holder.degrees.setText(String.format(Locale.ENGLISH, "%1$s %2$s", currentCard.getDegrees(), context.getResources().getString(R.string.celsius_symbol)));
+        holder.windspeed.setText(String.format(Locale.ENGLISH, "%1$s %2$s", currentCard.getWindspeed(), context.getResources().getString(R.string.airspeed_ms)));
+        holder.humidity.setText(String.format(Locale.ENGLISH, "%1$s %2$s", currentCard.getHumidity(), context.getResources().getString(R.string.humidity)));
     }
 
     public Card getCardAt(int position) {
@@ -78,10 +78,10 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
     }
 
     class CardHolder extends RecyclerView.ViewHolder {
-        private final CardView card_view;
-        private final ImageView face_image;
-        private final TextView city, state_country;
-        private final TextView quality_indicator, quality_assessment, degrees, windspeed, humidity;
+        final CardView card_view;
+        final ImageView face_image;
+        final TextView city, state_country;
+        final TextView quality_indicator, quality_assessment, degrees, windspeed, humidity;
 
         public CardHolder(@NonNull View itemView) {
             super(itemView);

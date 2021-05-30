@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
  and connects the entities to their corresponding DAO.*/
 // FIXME: Replace Deprecated Methods
 @SuppressWarnings("deprecation")
-@Database(entities = Card.class, version = 5, exportSchema = false)
+@Database(entities = Card.class, version = 6, exportSchema = false)
 public abstract class CardDatabase extends RoomDatabase {
 
     private static CardDatabase INSTANCE;
