@@ -1,3 +1,4 @@
+/*
 package com.androidapp.airqualitytracker;
 
 import android.app.Activity;
@@ -19,9 +20,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+*/
 /**
  * This class is used to get the data of every card from the airvisual api
-* */
+* *//*
+
 
 public class TakeData extends AsyncTask<Void, Void, Void> {
     //These are used to save the data for every city and display them on screen
@@ -77,7 +80,8 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
             country = jsonObject1.get("country").toString();
 
 
-            /*
+            */
+/*
             JSONArray jsonArray = new JSONArray(data);
             for (int i=0;i <jsonArray.length(); i++){
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
@@ -88,7 +92,8 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
             }
 
 
-             */
+             *//*
+
 
 
         } catch (MalformedURLException e) {
@@ -115,3 +120,4 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
         //SearchFragment.textView.setText(this.datareturned);
     }
 }
+*/
