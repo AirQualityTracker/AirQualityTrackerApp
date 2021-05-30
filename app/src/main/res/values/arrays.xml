@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="quality_assessments">
+        <item>@string/quality_assessment_0</item>
+        <item>@string/quality_assessment_1</item>
+        <item>@string/quality_assessment_2</item>
+        <item>@string/quality_assessment_3</item>
+        <item>@string/quality_assessment_4</item>
+        <item>@string/quality_assessment_5</item>
+    </string-array>
+
+    <integer-array name="card_face_images">
+        <item>@drawable/card_ic_face_0</item>
+        <item>@drawable/card_ic_face_1</item>
+        <item>@drawable/card_ic_face_2</item>
+        <item>@drawable/card_ic_face_3</item>
+        <item>@drawable/card_ic_face_4</item>
+        <item>@drawable/card_ic_face_5</item>
+    </integer-array>
+
+    <integer-array name="card_colors">
+        <item>@color/card_0</item>
+        <item>@color/card_1</item>
+        <item>@color/card_2</item>
+        <item>@color/card_3</item>
+        <item>@color/card_4</item>
+        <item>@color/card_5</item>
+    </integer-array>
+
+</resources>

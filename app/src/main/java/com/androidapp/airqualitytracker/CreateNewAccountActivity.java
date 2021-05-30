@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-/*
+
 public class CreateNewAccountActivity extends AppCompatActivity {
 
     EditText objEditTextEmailRegister , objEditTextUsernameRegister , objEditTextPasswordRegister;
@@ -28,7 +28,7 @@ public class CreateNewAccountActivity extends AppCompatActivity {
 
     //This method is used to create the users account when registered
     public void createNewAccount() {
-        Boolean userAddedSuccessfully = addUserToDb();
+        boolean userAddedSuccessfully = addUserToDb();
         //Try to add the user to the db
 
         //**should check if the email has already given**
@@ -90,4 +90,3 @@ public class CreateNewAccountActivity extends AppCompatActivity {
         return false;
     }
 }
-*/

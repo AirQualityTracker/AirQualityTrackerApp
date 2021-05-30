@@ -57,11 +57,11 @@ public class GetLocationActivity extends AppCompatActivity {
 
         //add skip button listener
         TextView buttonSkip = findViewById(R.id.skipLocationButton);
-        Intent mainMenuActivity = new Intent(this, MainMenuActivity.class);
+        Intent homeActivity = new Intent(this, MainMenuActivity.class);
         buttonSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(mainMenuActivity);
+                startActivity(homeActivity);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
             }
         });
@@ -75,8 +75,8 @@ public class GetLocationActivity extends AppCompatActivity {
             //if the grantResults contain the permission for location
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 //if the permission is granted then go to mainMenuActivity
-                Intent mainMenuActivity = new Intent(this, MainMenuActivity.class);
-                startActivity(mainMenuActivity);
+                Intent homeActivity = new Intent(this, MainMenuActivity.class);
+                startActivity(homeActivity);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
             } else {
                 //else show message

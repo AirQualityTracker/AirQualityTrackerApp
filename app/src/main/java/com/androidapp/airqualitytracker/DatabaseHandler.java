@@ -47,9 +47,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-   /* //method to add a user to the database
+    //method to add a user to the database
     public void addUser(User user) {
-      /*  ContentValues values = new ContentValues();
+        ContentValues values = new ContentValues();
         values.put(COLUMN_USERNAME, user.getUsername());
         values.put(COLUMN_EMAIL, user.getEmail());
         values.put(COLUMN_PASSWORD, user.getPassword());
@@ -96,5 +96,5 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         db.close();
         return result;
-    }*/
+    }
 }
