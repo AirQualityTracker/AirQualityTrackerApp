@@ -9,9 +9,10 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-/* The RoomDatabase is an abstract class that ties all the pieces together
- and connects the entities to their corresponding DAO.*/
-// FIXME: Replace Deprecated Methods
+/**
+ * This class reprents the database that holds the cards
+ * */
+
 @SuppressWarnings("deprecation")
 @Database(entities = Card.class, version = 6, exportSchema = false)
 public abstract class CardDatabase extends RoomDatabase {

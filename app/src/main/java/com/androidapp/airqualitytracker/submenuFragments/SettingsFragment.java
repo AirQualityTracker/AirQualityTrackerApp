@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 
 import com.androidapp.airqualitytracker.R;
 
-
+/***
+ * This class represents the settings fragment in which the list of settings is placed
+ */
 public class SettingsFragment extends Fragment {
 
 
@@ -29,14 +31,4 @@ public class SettingsFragment extends Fragment {
         return inflater.inflate(R.layout.settings_list_fragment, container, false);
     }
 
-
-   /*public View showAbout(){
-      *//*  Fragment aboutFragment = new AboutAQTFragment();
-       FragmentManager ftMan = getSupportFragmentManager();
-       FragmentTransaction ftTrans = ftMan.beginTransaction();
-       ftTrans.replace(R.id.fragment_container,
-               aboutFragment);
-       ftTrans.commit();*//*
-
-   }*/
 }

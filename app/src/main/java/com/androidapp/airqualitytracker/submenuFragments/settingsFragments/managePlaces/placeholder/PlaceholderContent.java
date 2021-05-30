@@ -14,12 +14,12 @@ import java.util.Map;
 public class PlaceholderContent {
 
     /**
-     * An array of sample (placeholder) items.
+     * An array of placeholder items.
      */
     public static final List<PlaceholderItem> ITEMS = new ArrayList<PlaceholderItem>();
 
     /**
-     * A map of sample (placeholder) items, by ID.
+     * A map of placeholder items, by ID.
      */
     public static final Map<String, PlaceholderItem> ITEM_MAP = new HashMap<String, PlaceholderItem>();
 
@@ -31,16 +31,19 @@ public class PlaceholderContent {
             addItem(createPlaceholderItem(i));
         }
     }
-
+   //adds an item to the placeholder item array
     private static void addItem(PlaceholderItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
+    //creates a placeholder item
     private static PlaceholderItem createPlaceholderItem(int position) {
         return new PlaceholderItem(String.valueOf(position), "Place " + position, makeDetails(position));
     }
 
+
+    //creates different details about the item
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);

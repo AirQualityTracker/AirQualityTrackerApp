@@ -37,7 +37,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-
+/**
+ * This class is used to show the map of the app
+ */
 //return current location of the user
 
 public class MapFragment extends Fragment{
@@ -56,6 +58,7 @@ public class MapFragment extends Fragment{
     }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+     //get the view from the xml
         View mView = inflater.inflate(R.layout.map_fragment, container, false);
         textView1 = mView.findViewById(R.id.textview1_location);
         textView2 = mView.findViewById(R.id.textview2_location);
@@ -65,7 +68,7 @@ public class MapFragment extends Fragment{
         button = mView.findViewById(R.id.button_location);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this.getActivity());
-
+    //add listener to the button that asks for the user location
         button.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +112,7 @@ public class MapFragment extends Fragment{
     }
 
      */
-
+   //This method is used to get the locations of the user
     private void getlocation() {
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling

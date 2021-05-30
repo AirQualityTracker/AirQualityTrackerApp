@@ -10,12 +10,10 @@ import android.view.ViewGroup;
 
 import com.androidapp.airqualitytracker.R;
 
-/**
- * This class represents the about fragment that contains info about the app
+/***
+ * This class represents the fragment that notifies the user for anything in the app
  */
-public class AboutAQTFragment extends Fragment {
-
-
+public class NotificationsFragment extends Fragment {
 
 
     @Override
@@ -28,6 +26,6 @@ public class AboutAQTFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.about_a_q_t_fragment, container, false);
+        return inflater.inflate(R.layout.notifications_fragment, container, false);
     }
 }

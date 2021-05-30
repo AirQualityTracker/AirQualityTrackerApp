@@ -19,6 +19,9 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Locale;
 
+/**
+ * This class is used to pass all the card views to an adapter and display them all together on screen
+ */
 public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
     private Context context;
 
@@ -54,6 +57,8 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
         return new CardHolder(itemView);
     }
 
+    
+    //set all the data that are obtained from the api to a card
     @Override
     public void onBindViewHolder(@NonNull CardHolder holder, int position) {
         Card currentCard = getItem(position);
@@ -76,7 +81,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
     public Card getCardAt(int position) {
         return getItem(position);
     }
-
+     //This class holds all the data for a card that is placed on a recycler viewer
     class CardHolder extends RecyclerView.ViewHolder {
         final CardView card_view;
         final ImageView face_image;

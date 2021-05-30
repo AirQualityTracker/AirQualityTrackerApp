@@ -2,6 +2,7 @@ package com.androidapp.airqualitytracker;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,27 +15,31 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.androidapp.airqualitytracker.submenuFragments.AboutAQTFragment;
 import com.androidapp.airqualitytracker.submenuFragments.HelpFragment;
+import com.androidapp.airqualitytracker.submenuFragments.NotificationsFragment;
+import com.androidapp.airqualitytracker.submenuFragments.RankFragment;
 import com.androidapp.airqualitytracker.submenuFragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * This class is used to handle all the events that happen on the main menu activity
+ */
 public class MainMenuActivity extends AppCompatActivity {
     View topNavView;
-    BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_activity);
 
+        //create a card view model
         CardViewModel cardViewModel = new ViewModelProvider(this).get(CardViewModel.class);
-
+        //get the toolbal from the xml
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //Bottom navigation bar actions
-        bottomNav = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
 
@@ -52,62 +57,35 @@ public class MainMenuActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Fragment selectedFragment = null;
-        switch (item.getItemId()) {
-
-            case R.id.nav_sub_menu_settings:
-                selectedFragment = new SettingsFragment();
-                break;
-
-            case R.id.nav_sub_menu_help:
-                selectedFragment = new HelpFragment();
-                break;
-
-            case R.id.nav_sub_menu_about:
-                selectedFragment = new AboutAQTFragment();
-                break;
-
-            default:
-                break;
-        }
-
-        if (selectedFragment != null) {
-            FragmentManager ftMan = getSupportFragmentManager();
-            FragmentTransaction ftTrans = ftMan.beginTransaction();
-            ftTrans.replace(R.id.fragment_container,
-                    selectedFragment);
-            ftTrans.commit();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    //Bottom nav bar button listeners
+    //Bottom navigation bar button listeners
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            item -> {
-                Fragment selectedFragment = null;
-                switch (item.getItemId()) {
-                    case R.id.nav_home:
-                        selectedFragment = new HomeFragment();
-                        break;
-                    case R.id.nav_map:
-                        selectedFragment = new MapFragment();
-                        break;
-                    case R.id.nav_search:
-                        selectedFragment = new SearchFragment();
-                        break;
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment = null;
+                    switch (item.getItemId()) {
+                        case R.id.nav_home:
+                            selectedFragment = new HomeFragment();
+                            break;
+                        case R.id.nav_map:
+                            selectedFragment = new MapFragment();
+                            break;
+                        case R.id.nav_search:
+                            selectedFragment = new SearchFragment();
+                            break;
 
-                }
-                if (selectedFragment != null) {
-                    FragmentManager ftMan = getSupportFragmentManager();
-                    FragmentTransaction ftTrans = ftMan.beginTransaction();
-                    ftTrans.replace(R.id.fragment_container,
-                            selectedFragment);
-                    ftTrans.commit();
-                }
+                    }
+                    if (selectedFragment != null) {
+                        FragmentManager ftMan = getSupportFragmentManager();
+                        FragmentTransaction ftTrans = ftMan.beginTransaction();
+                        ftTrans.replace(R.id.fragment_container,
+                                selectedFragment);
+                        ftTrans.commit();
+                    }
 
-                return true;
+                    return true;
+                }
             };
+
+
 }

@@ -16,23 +16,19 @@ import com.androidapp.airqualitytracker.R;
 import com.androidapp.airqualitytracker.submenuFragments.settingsFragments.managePlaces.placeholder.PlaceholderContent;
 
 /**
- * A fragment representing a list of Items.
+ * A fragment representing a list of places.
  */
 public class LocationFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
+
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
+
     private int mColumnCount = 1;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public LocationFragment() {
     }
 
-    // TODO: Customize parameter initialization
+
     @SuppressWarnings("unused")
     public static LocationFragment newInstance(int columnCount) {
         LocationFragment fragment = new LocationFragment();

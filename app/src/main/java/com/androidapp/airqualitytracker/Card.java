@@ -3,11 +3,12 @@ package com.androidapp.airqualitytracker;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-/* Room generates all the necessary code to create an SQLite table
- for this object using appropriate annotations.*/
+/**
+ * This class represents a card whch holds data for the city that is displayed
+ */
 @Entity(tableName = "card_table")
 public class Card {
-
+    //data of the city
     @PrimaryKey(autoGenerate = true)
     private int id;
     private final String city, state, country;
@@ -43,6 +44,8 @@ public class Card {
         this.severityCategory = calcSeverity(aqius);
     }
 
+
+    //calculates the severity of the air quality
     private int calcSeverity(int aqi) {
         int severity;
 

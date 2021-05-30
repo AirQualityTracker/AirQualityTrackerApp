@@ -8,6 +8,9 @@ import android.os.Bundle;
 
 import java.io.File;
 
+/**
+ * This class is used for the startup activity
+ */
 public class StartupActivity extends AppCompatActivity {
 
     @Override
@@ -17,7 +20,7 @@ public class StartupActivity extends AppCompatActivity {
 
         assert getApplicationContext() != null;
         //deleteDatabaseFile(getApplicationContext(), "card_database2");
-
+        //diplay the image for 5 seconds
         Thread background = new Thread() {
             public void run() {
                 try {
@@ -37,7 +40,7 @@ public class StartupActivity extends AppCompatActivity {
         // start thread
         background.start();
     }
-
+    //This method is used to delete the database created in a previous session
     public static void deleteDatabaseFile(Context context, String databaseName) {
         File databases = new File(context.getApplicationInfo().dataDir + "/databases");
         File db = new File(databases, databaseName);
