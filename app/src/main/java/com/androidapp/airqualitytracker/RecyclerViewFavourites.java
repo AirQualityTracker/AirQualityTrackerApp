@@ -1,3 +1,4 @@
+/*
 package com.androidapp.airqualitytracker;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,4 +34,4 @@ public class RecyclerViewFavourites extends AppCompatActivity {
         recyclerViewFavourites.setAdapter(adapterFavourites);
 
     }
-}
+}*/

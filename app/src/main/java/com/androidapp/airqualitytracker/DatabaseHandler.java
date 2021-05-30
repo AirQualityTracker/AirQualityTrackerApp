@@ -1,3 +1,4 @@
+/*
 package com.androidapp.airqualitytracker;
 
 
@@ -98,3 +99,4 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return result;
     }
 }
+*/

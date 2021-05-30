@@ -1,3 +1,4 @@
+/*
 package com.androidapp.airqualitytracker;
 
 import android.app.Activity;
@@ -73,3 +74,4 @@ public class FavouritesAdp extends RecyclerView.Adapter<FavouritesAdp.ViewHolder
         }
     }
 }
+*/

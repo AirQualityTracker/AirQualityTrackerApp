@@ -1,3 +1,4 @@
+/*
 package com.androidapp.airqualitytracker;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,3 +83,4 @@ public class LogInActivity extends AppCompatActivity {
 
 
 }
+*/

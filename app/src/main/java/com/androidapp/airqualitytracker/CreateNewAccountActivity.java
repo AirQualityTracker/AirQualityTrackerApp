@@ -1,3 +1,4 @@
+/*
 package com.androidapp.airqualitytracker;
 
 import androidx.appcompat.app.AlertDialog;
@@ -90,3 +91,4 @@ public class CreateNewAccountActivity extends AppCompatActivity {
         return false;
     }
 }
+*/
