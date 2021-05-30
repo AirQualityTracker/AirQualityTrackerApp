@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
  and connects the entities to their corresponding DAO.*/
 // FIXME: Replace Deprecated Methods
 //@SuppressWarnings("deprecation")
-@Database(entities = Card.class, version = 4, exportSchema = false)
+@Database(entities = Card.class, version = 5, exportSchema = false)
 public abstract class CardDatabase extends RoomDatabase {
 
     private static CardDatabase INSTANCE;
@@ -56,7 +56,7 @@ public abstract class CardDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            /*cardDao.deleteAllCards();
+            cardDao.deleteAllCards();
             cardDao.insert(new Card(
                     "Thessaloniki",
                     "Central Macedonia",
@@ -65,7 +65,9 @@ public abstract class CardDatabase extends RoomDatabase {
                     20,
                     23,
                     20,
-                    50
+                    50,
+                    0,
+                    0
             ));
             cardDao.insert(new Card(
                     "Los Angeles",
@@ -75,7 +77,9 @@ public abstract class CardDatabase extends RoomDatabase {
                     20,
                     15,
                     30,
-                    43
+                    43,
+                    0,
+                    0
             ));
             cardDao.insert(new Card(
                     "Sonota",
@@ -85,7 +89,9 @@ public abstract class CardDatabase extends RoomDatabase {
                     20,
                     19,
                     40,
-                    57
+                    57,
+                    0,
+                    0
             ));
             cardDao.insert(new Card(
                     "Port Harcourt",
@@ -95,7 +101,9 @@ public abstract class CardDatabase extends RoomDatabase {
                     20,
                     32,
                     30,
-                    65
+                    65,
+                    0,
+                    0
             ));
             cardDao.insert(new Card(
                     "St. John's",
@@ -105,7 +113,9 @@ public abstract class CardDatabase extends RoomDatabase {
                     20,
                     26,
                     25,
-                    39
+                    39,
+                    0,
+                    0
             ));
             cardDao.insert(new Card(
                     "Beijing",
@@ -115,8 +125,10 @@ public abstract class CardDatabase extends RoomDatabase {
                     20,
                     29,
                     15,
-                    44
-            ));*/
+                    44,
+                    0,
+                    0
+            ));
 
             return null;
         }
