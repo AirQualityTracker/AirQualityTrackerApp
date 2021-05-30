@@ -21,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainMenuActivity extends AppCompatActivity {
     View topNavView;
+    BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainMenuActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Bottom navigation bar actions
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
 
@@ -71,6 +72,7 @@ public class MainMenuActivity extends AppCompatActivity {
             default:
                 break;
         }
+
         if (selectedFragment != null) {
             FragmentManager ftMan = getSupportFragmentManager();
             FragmentTransaction ftTrans = ftMan.beginTransaction();

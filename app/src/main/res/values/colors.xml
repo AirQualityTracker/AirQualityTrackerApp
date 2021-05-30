@@ -8,9 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="card_0">#FFA8E05F</color>
-    <color name="card_1">#FFFDD74B</color>
-    <color name="card_2">#FFFE9B57</color>
+    <color name="card_0">#92C61D</color>
+    <color name="card_1">#FFf9b208</color>
+    <color name="card_2">#FFf98404</color>
     <color name="card_3">#FFFE6A69</color>
     <color name="card_4">#FFA97ABC</color>
     <color name="card_5">#FFA87383</color>

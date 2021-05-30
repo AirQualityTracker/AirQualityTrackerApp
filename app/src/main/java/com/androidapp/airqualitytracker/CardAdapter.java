@@ -69,7 +69,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
         holder.quality_assessment.setText(qualityAssessments[currentCard.getSeverityCategory()]);
 
         holder.degrees.setText(String.format(Locale.ENGLISH, "%1$s %2$s", currentCard.getDegrees(), context.getResources().getString(R.string.celsius_symbol)));
-        holder.windspeed.setText(String.format(Locale.ENGLISH, "%1$s %2$s", currentCard.getWindspeed(), context.getResources().getString(R.string.airspeed_ms)));
+        holder.windspeed.setText(String.format(Locale.ENGLISH, "%1$s\n%2$s", currentCard.getWindspeed(), context.getResources().getString(R.string.airspeed_ms)));
         holder.humidity.setText(String.format(Locale.ENGLISH, "%1$s %2$s", currentCard.getHumidity(), context.getResources().getString(R.string.humidity)));
     }
 

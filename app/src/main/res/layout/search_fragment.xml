@@ -18,28 +18,33 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
+            android:imeOptions="actionSearch"
+            android:inputType="text"
             android:id="@+id/et_place"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="place:" />
+            android:hint="@string/city_or_place"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/bt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:text="@string/submit" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textview"
+    <include
+        layout="@layout/aqt_card_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@id/linearLayout"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

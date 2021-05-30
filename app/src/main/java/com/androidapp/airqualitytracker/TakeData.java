@@ -1,7 +1,7 @@
+/*
 package com.androidapp.airqualitytracker;
 
 import android.os.AsyncTask;
-import android.view.View;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,8 +15,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class TakeData extends AsyncTask<Void, Void, Card> {
-    String latitude = "" , longitude = "" , data="" , datareturned= "";
-    String city, state , country , ws, hu, tp, aqius, aqicn;
+    private String latitude = "" , longitude = "" , data="" , datareturned= "";
+    private String city, state , country , ws, hu, tp, aqius, aqicn;
 
     public TakeData(String latitude , String longitude){
         this.latitude = latitude;
@@ -65,7 +65,8 @@ public class TakeData extends AsyncTask<Void, Void, Card> {
             country = jsonObject1.get("country").toString();
 
 
-            /*
+            */
+/*
             JSONArray jsonArray = new JSONArray(data);
             for (int i=0;i <jsonArray.length(); i++){
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
@@ -76,7 +77,8 @@ public class TakeData extends AsyncTask<Void, Void, Card> {
             }
 
 
-             */
+             *//*
+
 
 
         } catch (MalformedURLException e) {
@@ -98,7 +100,7 @@ public class TakeData extends AsyncTask<Void, Void, Card> {
         super.onPostExecute(card);
 
 
-
         SearchFragment.textView.setText(datareturned);
     }
 }
+*/
