@@ -20,7 +20,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".RecyclerViewFavourites"></activity>
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".GetLocationActivity" />
         <activity android:name=".GetStartedActivity" />

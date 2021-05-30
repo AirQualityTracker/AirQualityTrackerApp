@@ -84,6 +84,7 @@
     <string name="humidity_image_description">Humidity Icon</string>
     <string name="aqt_card_icon_description">AQT Icon</string>
     <string name="snackbar_card_deleted">Location deleted</string>
+    <string name="snackbar_card_added">Location added. Check Home</string>
     <string name="snackbar_card_undo">Undo</string>
     <string name="about">About</string>
     <string name="submit">Submit</string>

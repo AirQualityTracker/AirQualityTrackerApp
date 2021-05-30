@@ -48,10 +48,11 @@ public class HomeFragment extends Fragment {
         sharedCardViewModel = new ViewModelProvider(requireActivity()).get(CardViewModel.class);
         sharedCardViewModel.getAllCards().observe(getViewLifecycleOwner(), adapter::submitList);
 
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.START | ItemTouchHelper.END) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
+                recyclerView.getAdapter().notifyItemMoved(viewHolder.getAbsoluteAdapterPosition(), target.getAbsoluteAdapterPosition());
+                return true;
             }
 
             @Override
@@ -62,8 +63,24 @@ public class HomeFragment extends Fragment {
                 sharedCardViewModel.delete(cardToDelete);
 
                 Snackbar snackbar = Snackbar.make(view, R.string.snackbar_card_deleted, Snackbar.LENGTH_LONG);
+                snackbar.setDuration(5000);
                 snackbar.setAction(R.string.snackbar_card_undo, v -> sharedCardViewModel.insert(cardToDelete));
                 snackbar.show();
+            }
+
+            @Override
+            public boolean isItemViewSwipeEnabled() {
+                return true;
+            }
+
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                // Set movement flags to specify the movement direction
+                // final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT;  <-- for all directions
+                // In this case only up and down is allowed
+                final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+                final int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+                return makeMovementFlags(dragFlags, swipeFlags);
             }
 
         }).attachToRecyclerView(recyclerView);

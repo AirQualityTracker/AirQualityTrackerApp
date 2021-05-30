@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Message;
 import android.util.Log;
@@ -17,6 +18,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +39,7 @@ import java.util.Locale;
  * */
 //returns lang and lot for a place user enters
 public class SearchFragment extends Fragment {
+    private CardViewModel sharedCardViewModel;
     protected LayoutInflater layoutInflater;
     protected ViewGroup viewGroupContainer;
     protected View view;
@@ -54,6 +59,8 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         layoutInflater = inflater;
         viewGroupContainer = container;
+
+        sharedCardViewModel = new ViewModelProvider(requireActivity()).get(CardViewModel.class);
 
         view = layoutInflater.inflate(R.layout.search_fragment, viewGroupContainer, false);
 
@@ -223,6 +230,10 @@ public class SearchFragment extends Fragment {
 
 
             card_view.setVisibility(View.VISIBLE);
+            sharedCardViewModel.insert(card);
+
+            Toast toast = Toast.makeText(getContext(), R.string.snackbar_card_added, Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 
