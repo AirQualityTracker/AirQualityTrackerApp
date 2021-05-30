@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 /* The RoomDatabase is an abstract class that ties all the pieces together
  and connects the entities to their corresponding DAO.*/
 // FIXME: Replace Deprecated Methods
-//@SuppressWarnings("deprecation")
+@SuppressWarnings("deprecation")
 @Database(entities = Card.class, version = 5, exportSchema = false)
 public abstract class CardDatabase extends RoomDatabase {
 
@@ -32,7 +32,7 @@ public abstract class CardDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    private static RoomDatabase.Callback roomCallback = new Callback() {
+    private static final RoomDatabase.Callback roomCallback = new Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
@@ -48,7 +48,7 @@ public abstract class CardDatabase extends RoomDatabase {
     };
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        private CardDao cardDao;
+        private final CardDao cardDao;
 
         private PopulateDbAsyncTask(CardDatabase database) {
             cardDao = database.cardDao();

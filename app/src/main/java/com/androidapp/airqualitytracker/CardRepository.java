@@ -12,8 +12,8 @@ import java.util.List;
 // FIXME: Replace Deprecated Methods
 @SuppressWarnings("deprecation")
 public class CardRepository {
-    private CardDao cardDao;
-    private LiveData<List<Card>> allCards;
+    private final CardDao cardDao;
+    private final LiveData<List<Card>> allCards;
 
     public CardRepository(Application application) {
         CardDatabase database = CardDatabase.getInstance(application);
@@ -44,7 +44,7 @@ public class CardRepository {
     /* Room doesn't allow database queries on the main thread,
      we use AsyncTasks to execute them asynchronously. */
     private static class InsertCardAsyncTask extends AsyncTask<Card, Void, Void> {
-        private CardDao cardDao;
+        private final CardDao cardDao;
 
         private InsertCardAsyncTask(CardDao cardDao) {
             this.cardDao = cardDao;
@@ -58,7 +58,7 @@ public class CardRepository {
     }
 
     private static class UpdateCardAsyncTask extends AsyncTask<Card, Void, Void> {
-        private CardDao cardDao;
+        private final CardDao cardDao;
 
         private UpdateCardAsyncTask(CardDao cardDao) {
             this.cardDao = cardDao;
@@ -72,7 +72,7 @@ public class CardRepository {
     }
 
     private static class DeleteCardAsyncTask extends AsyncTask<Card, Void, Void> {
-        private CardDao cardDao;
+        private final CardDao cardDao;
 
         private DeleteCardAsyncTask(CardDao cardDao) {
             this.cardDao = cardDao;
@@ -86,7 +86,7 @@ public class CardRepository {
     }
 
     private static class DeleteAllCardsAsyncTask extends AsyncTask<Void, Void, Void> {
-        private CardDao cardDao;
+        private final CardDao cardDao;
 
         private DeleteAllCardsAsyncTask(CardDao cardDao) {
             this.cardDao = cardDao;

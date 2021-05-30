@@ -9,8 +9,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class CardViewModel extends AndroidViewModel {
-    private CardRepository repository;
-    private LiveData<List<Card>> allCards;
+    private final CardRepository repository;
+    private final LiveData<List<Card>> allCards;
 
     public CardViewModel(@NonNull Application application) {
         super(application);

@@ -12,14 +12,14 @@ public class Card {
     private int id;
     private final String city, state, country;
 
-    private int aqius;
-    private int aqicn;
+    private final int aqius;
+    private final int aqicn;
 
-    private int degrees;
+    private final int degrees;
 
-    private int windspeed;
+    private final int windspeed;
 
-    private int humidity;
+    private final int humidity;
     private int severityCategory;
 
     private final double latitude;

@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Locale;
+
 public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
     private Context context;
 
@@ -66,9 +68,9 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
         holder.quality_indicator.setText(String.valueOf(currentCard.getAqius()));
         holder.quality_assessment.setText(qualityAssessments[currentCard.getSeverityCategory()]);
 
-        holder.degrees.setText(String.format("%1$d %2$s", currentCard.getDegrees(), context.getResources().getString(R.string.celsius_symbol)));
-        holder.windspeed.setText(String.format("%1$d %2$s", currentCard.getWindspeed(), context.getResources().getString(R.string.airspeed_ms)));
-        holder.humidity.setText(String.format("%1$d %2$s", currentCard.getHumidity(), context.getResources().getString(R.string.humidity)));
+        holder.degrees.setText(String.format(Locale.ENGLISH, "%1$d %2$s", currentCard.getDegrees(), context.getResources().getString(R.string.celsius_symbol)));
+        holder.windspeed.setText(String.format(Locale.ENGLISH, "%1$d %2$s", currentCard.getWindspeed(), context.getResources().getString(R.string.airspeed_ms)));
+        holder.humidity.setText(String.format(Locale.ENGLISH, "%1$d %2$s", currentCard.getHumidity(), context.getResources().getString(R.string.humidity)));
     }
 
     public Card getCardAt(int position) {
