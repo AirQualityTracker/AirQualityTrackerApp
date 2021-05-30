@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_sub_menu_rank"
-        android:icon="@drawable/ic_baseline_rank_chart_24"
-        android:title="@string/rank" />
-    <item
-        android:id="@+id/nav_sub_menu_notifications"
-        android:icon="@drawable/ic_baseline_notifications_24"
-        android:title="@string/notifications" />
-    <item
         android:id="@+id/nav_sub_menu_settings"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="@string/settings"
-        />
+        android:title="@string/settings" />
     <item
         android:id="@+id/nav_sub_menu_help"
         android:icon="@drawable/ic_baseline_help_24"
         android:title="@string/help" />
+    <item
+        android:id="@+id/nav_sub_menu_about"
+        android:icon="@drawable/ic_baseline_people_24"
+        android:title="@string/about" />
 </menu>

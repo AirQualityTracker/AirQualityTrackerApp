@@ -3,6 +3,7 @@ package com.androidapp.airqualitytracker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -30,6 +31,9 @@ public class MainMenuActivity extends AppCompatActivity {
 
         CardViewModel cardViewModel = new ViewModelProvider(this).get(CardViewModel.class);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         //Bottom navigation bar actions
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -40,6 +44,13 @@ public class MainMenuActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.bottom_navigation_bar_sub_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     //Bottom nav bar button listeners
@@ -57,9 +68,6 @@ public class MainMenuActivity extends AppCompatActivity {
                             break;
                         case R.id.nav_search:
                             selectedFragment = new SearchFragment();
-                            break;
-                        case R.id.nav_menu:
-                            showPopup();
                             break;
 
                     }
@@ -83,7 +91,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }*/
 
 
-    public void showPopup() {
+    /*public void showPopup() {
         View view = findViewById(R.id.nav_menu);
         PopupMenu popup = new PopupMenu(this, view);
         MenuInflater inflater = popup.getMenuInflater();
@@ -122,6 +130,6 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
         popup.show();
-    }
+    }*/
 
 }
