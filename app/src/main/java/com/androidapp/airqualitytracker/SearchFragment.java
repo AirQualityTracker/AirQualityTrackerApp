@@ -85,7 +85,7 @@ public class SearchFragment extends Fragment{
 
 
             }
-            textView.setText(address);
+            //textView.setText(address);
 
         }
 

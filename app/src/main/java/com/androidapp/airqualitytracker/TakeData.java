@@ -1,6 +1,12 @@
 package com.androidapp.airqualitytracker;
 
+import android.app.Activity;
 import android.os.AsyncTask;
+import android.util.JsonReader;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import androidx.cardview.widget.CardView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,6 +23,7 @@ import java.net.URL;
 public class TakeData extends AsyncTask<Void, Void, Void> {
 
     String latitude = "" , longitude = "" , data="" , datareturned= "";
+    String city, state , country , ws, hu, tp, aqius, aqicn;
 
     public TakeData(String latitude , String longitude){
         this.latitude = latitude;
@@ -38,6 +45,34 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
                 data = data + line+'d';
             }
 
+
+            JSONObject jsonObject = new JSONObject(data);
+            JSONObject jsonObject1 = (JSONObject) jsonObject.get("data");
+            JSONObject jsonObject2 = (JSONObject) jsonObject1.get("current");
+            JSONObject jsonObject3 = (JSONObject) jsonObject2.get("weather");
+
+            //Save wind speed
+            ws = jsonObject3.get("ws").toString();
+            //Save humidily
+            hu = jsonObject3.get("hu").toString();
+            //Save temperature
+            tp = jsonObject3.get("tp").toString();
+
+            JSONObject jsonObject4 = (JSONObject) jsonObject2.get("pollution");
+
+            //Save aqi score (Usa)
+            aqius = jsonObject4.get("aqius").toString();
+            //Save aqi score (China)
+            aqicn = jsonObject4.get("aqicn").toString();
+
+            //Save city
+            city = jsonObject1.get("city").toString();
+            //Save state
+            state = jsonObject1.get("state").toString();
+            //Save country
+            country = jsonObject1.get("country").toString();
+
+
             /*
             JSONArray jsonArray = new JSONArray(data);
             for (int i=0;i <jsonArray.length(); i++){
@@ -48,19 +83,22 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
 
             }
 
+
              */
+
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
-            data = "error";
+            datareturned = "error";
         } catch (IOException e) {
             e.printStackTrace();
-            data="error2";
-        } /*catch (JSONException e) {
+            datareturned="error2";
+        } catch (JSONException e) {
             e.printStackTrace();
+            datareturned = "error3";
         }
 
-       */
+
         return null;
     }
 
@@ -68,6 +106,8 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid){
         super.onPostExecute(aVoid);
 
-        SearchFragment.textView.setText(this.data);
+        Card card = new Card(city , state, country, Integer.parseInt(aqius), Integer.parseInt(aqicn), Integer.parseInt(tp), Integer.parseInt(ws) , Integer.parseInt(hu) , Integer.parseInt(latitude), Integer.parseInt(longitude));
+
+        //SearchFragment.textView.setText(this.datareturned);
     }
 }
