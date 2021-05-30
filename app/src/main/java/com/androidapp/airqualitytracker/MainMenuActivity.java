@@ -6,6 +6,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +28,7 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_activity);
 
+        CardViewModel cardViewModel = new ViewModelProvider(this).get(CardViewModel.class);
 
         //Bottom navigation bar actions
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);

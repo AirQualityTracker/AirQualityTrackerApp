@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import androidx.fragment.app.Fragment;
+
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,21 +20,31 @@ import com.google.android.material.snackbar.Snackbar;
 
 
 public class HomeFragment extends Fragment {
-    private CardViewModel cardViewModel;
+    private CardViewModel sharedCardViewModel;
+
+    private View view;
+    private RecyclerView recyclerView;
+    private CardAdapter adapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.home_fragment, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        view = inflater.inflate(R.layout.home_fragment, container, false);
+        recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        CardAdapter adapter = new CardAdapter();
+        adapter = new CardAdapter();
         recyclerView.setAdapter(adapter);
 
-        cardViewModel = new ViewModelProvider(requireActivity()).get(CardViewModel.class);
-        //networkRequest();
-        cardViewModel.getAllCards().observe(getViewLifecycleOwner(), adapter::submitList);
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        sharedCardViewModel = new ViewModelProvider(requireActivity()).get(CardViewModel.class);
+        sharedCardViewModel.getAllCards().observe(getViewLifecycleOwner(), adapter::submitList);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -46,47 +57,13 @@ public class HomeFragment extends Fragment {
                 int position = viewHolder.getAbsoluteAdapterPosition();
                 Card cardToDelete = adapter.getCardAt(position);
 
-                cardViewModel.delete(cardToDelete);
+                sharedCardViewModel.delete(cardToDelete);
 
                 Snackbar snackbar = Snackbar.make(view, R.string.snackbar_card_deleted, Snackbar.LENGTH_LONG);
-                snackbar.setAction(R.string.snackbar_card_undo, v -> cardViewModel.insert(cardToDelete));
+                snackbar.setAction(R.string.snackbar_card_undo, v -> sharedCardViewModel.insert(cardToDelete));
                 snackbar.show();
             }
 
         }).attachToRecyclerView(recyclerView);
-
-        return view;
     }
-
-    /*private void networkRequest() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.airvisual.com/v2/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        AirVisualApi api = retrofit.create(AirVisualApi.class);
-
-        Call<List<Card>> call = api.getCards();
-
-        call.enqueue(new Callback<List<Card>>() {
-            @Override
-            public void onResponse(Call<List<Card>> call, Response<List<Card>> response) {
-                if (!response.isSuccessful()) {
-                    Log.println(Log.ERROR, "Response failure: ", String.valueOf(response.code()));
-                    return;
-                }
-
-                List<Card> cards = response.body();
-
-                for (Card card : cards) {
-                    cardViewModel.insert(card);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Card>> call, Throwable t) {
-                Log.println(Log.ERROR, "Call failure: ", t.getMessage());
-            }
-        });
-    }*/
 }
