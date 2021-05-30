@@ -27,6 +27,9 @@ import com.androidapp.airqualitytracker.R;
 import com.androidapp.airqualitytracker.submenuFragments.settingsFragments.managePlaces.LocationFragment;
 
 import org.jetbrains.annotations.NotNull;
+/**
+ *This class represents the list of settings
+ */
 
 public class SettingsListFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
 
@@ -54,12 +57,12 @@ public class SettingsListFragment extends Fragment implements PopupMenu.OnMenuIt
         // set unit system info text
         TextView unitSystemInfo = getActivity().findViewById(R.id.unitSystemInfo);
         unitSystemInfo.setText("Metric");
+
+        //get the settings list contents from the table layout
         TableLayout settingsFragmentList = (TableLayout) view.findViewById(R.id.settingsFragmentList);
         for(int i = 0; i < settingsFragmentList.getChildCount(); i++) {
             View view2 = settingsFragmentList.getChildAt(i);
             if (view2 instanceof TableRow) {
-                // then, you can remove the the row you want...
-                // for instance...
                 TableRow row = (TableRow) view2;
                 View rowChildPart =  row.getChildAt(0);
                 if(rowChildPart instanceof TextView){
@@ -105,7 +108,7 @@ public class SettingsListFragment extends Fragment implements PopupMenu.OnMenuIt
         }
     }
 
-
+   //changes thq aqi index
     public void changeAqiIndex(View v) {
         PopupMenu popup = new PopupMenu(getContext(), v);
         popup.setOnMenuItemClickListener(this);
@@ -115,7 +118,7 @@ public class SettingsListFragment extends Fragment implements PopupMenu.OnMenuIt
         //aqiIndexMenuItem.setChecked(true);
         popup.show();
     }
-
+   //changes the uniti system
     public void changeUnitSystem(View v) {
         PopupMenu popup = new PopupMenu(getContext(), v);
         popup.setOnMenuItemClickListener(this);
@@ -126,7 +129,7 @@ public class SettingsListFragment extends Fragment implements PopupMenu.OnMenuIt
         popup.show();
     }
 
-
+   // handles the menu items of the choices that are given on the settings
     @Override
     public boolean onMenuItemClick(MenuItem item){
         switch (item.getItemId()) {
@@ -159,6 +162,7 @@ public class SettingsListFragment extends Fragment implements PopupMenu.OnMenuIt
 
         }
     }
+
 
     public void openSystemPemissions(){
         getActivity().startActivityForResult(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS), 0);

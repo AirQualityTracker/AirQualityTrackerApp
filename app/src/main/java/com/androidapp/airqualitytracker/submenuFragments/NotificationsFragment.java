@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 
 import com.androidapp.airqualitytracker.R;
 
-
+/***
+ * This class represents the fragment that notifies the user for anything in the app
+ */
 public class NotificationsFragment extends Fragment {
 
 

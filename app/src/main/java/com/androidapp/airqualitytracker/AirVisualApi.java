@@ -4,7 +4,9 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-
+/**
+ * This class represents the airvisual api  interface
+ * */
 public interface AirVisualApi {
 
     @GET("countries")

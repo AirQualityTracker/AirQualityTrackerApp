@@ -18,7 +18,9 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-
+/**
+ * This activity is used to get the user location
+ */
 public class GetLocationActivity extends AppCompatActivity {
     //this code is used to check if the permission is granted by the user
     private final int REQUEST_LOCATION_CODE = 1;
@@ -33,7 +35,7 @@ public class GetLocationActivity extends AppCompatActivity {
 
     }
 
-
+   //add listener to the button that asks for the activity
     private void addButtonListeners(){
         //add findMyLocation button listener
         Button buttonRequest = findViewById(R.id.findMyLocationButton);

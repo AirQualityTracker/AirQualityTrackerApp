@@ -7,9 +7,14 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+/***
+ * This class represents a  model that manages all the cards contained in the repository
+ */
 
 public class CardViewModel extends AndroidViewModel {
+    //card repo
     private final CardRepository repository;
+    //list of all the cards on the repo
     private final LiveData<List<Card>> allCards;
 
     public CardViewModel(@NonNull Application application) {

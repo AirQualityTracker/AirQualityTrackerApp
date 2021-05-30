@@ -19,9 +19,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+/**
+ * This class is used to get the data of every card from the airvisual api
+* */
 
 public class TakeData extends AsyncTask<Void, Void, Void> {
-
+    //These are used to save the data for every city and display them on screen
     String latitude = "" , longitude = "" , data="" , datareturned= "";
     String city, state , country , ws, hu, tp, aqius, aqicn;
 
@@ -33,6 +36,7 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
+        //Get the data from the api
         try {
             URL url = new URL("https://api.airvisual.com/v2/nearest_city?lat="+latitude+"&lon="+longitude+"&key=aaa37172-9f2d-43bc-aca0-a2edc3417e9a");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -45,7 +49,7 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
                 data = data + line+'d';
             }
 
-
+            //save then in jason object
             JSONObject jsonObject = new JSONObject(data);
             JSONObject jsonObject1 = (JSONObject) jsonObject.get("data");
             JSONObject jsonObject2 = (JSONObject) jsonObject1.get("current");
@@ -101,7 +105,7 @@ public class TakeData extends AsyncTask<Void, Void, Void> {
 
         return null;
     }
-
+    //This method is used to pass the adta o a city to a card
     @Override
     protected void onPostExecute(Void aVoid){
         super.onPostExecute(aVoid);

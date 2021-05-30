@@ -28,7 +28,9 @@ import java.net.URL;
 import retrofit2.http.HTTP;
 import retrofit2.http.Url;
 
-
+/**
+ * This class is used for searching locations
+ * */
 //returns lang and lot for a place user enters
 public class SearchFragment extends Fragment{
     private Button bt;
@@ -47,11 +49,12 @@ public class SearchFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //get the views from the xml
         View view= inflater.inflate(R.layout.search_fragment, container, false);
         editText = view.findViewById(R.id.et_place);
         bt = view.findViewById(R.id.bt);
         textView = view.findViewById(R.id.textview);
-
+        //add a listener to the search button
         bt.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View v){
                 String address = editText.getText().toString();
@@ -66,6 +69,9 @@ public class SearchFragment extends Fragment{
 
     }
 
+    /**
+     * This class is used to show a data according to the api for the searched city
+     */
     public class GeoHandler extends android.os.Handler {
         @Override
         public void handleMessage(Message msg){

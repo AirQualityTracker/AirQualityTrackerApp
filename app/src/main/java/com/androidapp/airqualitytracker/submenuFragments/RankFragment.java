@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 
 import com.androidapp.airqualitytracker.R;
 
-
+/**
+ * This class represents the rank fragment in which the ranking of the countries is placed
+ * */
 public class RankFragment extends Fragment {
 
 

@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 
 import com.androidapp.airqualitytracker.R;
 
-
+/**
+ * This class represents the about fragment that contains info about the app
+ */
 public class AboutAQTFragment extends Fragment {
 
 

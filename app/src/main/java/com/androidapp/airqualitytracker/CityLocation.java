@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * This class is used to get the data a location for a city
+ */
 public class CityLocation {
     public static void getAddress  (String locationAddress , Context context, android.os.Handler handler) {
         Thread thread = new Thread() {

@@ -21,6 +21,9 @@ import com.androidapp.airqualitytracker.submenuFragments.RankFragment;
 import com.androidapp.airqualitytracker.submenuFragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * This class is used to handle all the events that happen on the main menu activity
+ */
 public class MainMenuActivity extends AppCompatActivity {
     View topNavView;
 
@@ -29,8 +32,9 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_activity);
 
+        //create a card view model
         CardViewModel cardViewModel = new ViewModelProvider(this).get(CardViewModel.class);
-
+        //get the toolbal from the xml
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,7 +57,7 @@ public class MainMenuActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    //Bottom nav bar button listeners
+    //Bottom navigation bar button listeners
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -83,53 +87,5 @@ public class MainMenuActivity extends AppCompatActivity {
                 }
             };
 
-/*   @SuppressLint("ResourceType")
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.addSubMenu(R.menu.bottom_navigation_bar_sub_menu);
-        return true;
-    }*/
-
-
-    /*public void showPopup() {
-        View view = findViewById(R.id.nav_menu);
-        PopupMenu popup = new PopupMenu(this, view);
-        MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.bottom_navigation_bar_sub_menu, popup.getMenu());
-
-        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            public boolean onMenuItemClick(MenuItem item) {
-                Fragment selectedFragment = null;
-                switch (item.getItemId()) {
-                    case R.id.nav_sub_menu_rank:
-                        selectedFragment = new RankFragment();
-
-                    case R.id.nav_sub_menu_help:
-                        selectedFragment = new HelpFragment();
-                        break;
-
-                    case R.id.nav_sub_menu_notifications:
-                        selectedFragment = new NotificationsFragment();
-                        break;
-                    case R.id.nav_sub_menu_settings:
-                        selectedFragment = new SettingsFragment();
-                        break;
-
-                    default:
-                        break;
-
-                }
-                if (selectedFragment != null) {
-                    FragmentManager ftMan = getSupportFragmentManager();
-                    FragmentTransaction ftTrans = ftMan.beginTransaction();
-                    ftTrans.replace(R.id.fragment_container,
-                            selectedFragment);
-                    ftTrans.commit();
-                }
-                return true;
-            }
-        });
-        popup.show();
-    }*/
 
 }

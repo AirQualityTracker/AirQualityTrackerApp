@@ -14,8 +14,10 @@ import com.androidapp.airqualitytracker.submenuFragments.settingsFragments.manag
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
- * TODO: Replace the implementation with code for your data type.
+ *
+ * This class represents a recycler adapter that  contains the places that the user can manage from the
+ * settings
+ *
  */
 public class MyLocationRecyclerViewAdapter extends RecyclerView.Adapter<MyLocationRecyclerViewAdapter.ViewHolder> {
      //users places
@@ -34,6 +36,7 @@ public class MyLocationRecyclerViewAdapter extends RecyclerView.Adapter<MyLocati
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        //get the items from the holder
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
@@ -43,7 +46,7 @@ public class MyLocationRecyclerViewAdapter extends RecyclerView.Adapter<MyLocati
     public int getItemCount() {
         return mValues.size();
     }
-
+    //class that holds each place data
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mIdView;
         public final TextView mContentView;

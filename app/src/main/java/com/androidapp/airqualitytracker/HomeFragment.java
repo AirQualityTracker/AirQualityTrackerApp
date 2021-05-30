@@ -18,7 +18,9 @@ import android.view.ViewGroup;
 
 import com.google.android.material.snackbar.Snackbar;
 
-
+/**
+ * This class is used to show to all the cards in the home page through a recycler viewer
+ * */
 public class HomeFragment extends Fragment {
     private CardViewModel sharedCardViewModel;
 
@@ -28,7 +30,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        //get the views from the xml an add a recycler adapter to the page
         view = inflater.inflate(R.layout.home_fragment, container, false);
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -42,7 +44,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        //get all the cards from the card model and display them on screen
         sharedCardViewModel = new ViewModelProvider(requireActivity()).get(CardViewModel.class);
         sharedCardViewModel.getAllCards().observe(getViewLifecycleOwner(), adapter::submitList);
 

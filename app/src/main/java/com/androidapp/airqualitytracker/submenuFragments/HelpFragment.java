@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 
 import com.androidapp.airqualitytracker.R;
 
-
+/**
+ * This class represents the help fragment in which different texts about the app appear
+ */
 public class HelpFragment extends Fragment {
 
 
