@@ -17,13 +17,24 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.MapView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import retrofit2.http.HTTP;
+import retrofit2.http.Url;
 
 
 //returns lang and lot for a place user enters
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment{
     private Button bt;
     private EditText editText;
-    private TextView textView; //this will deleted
+    public static TextView textView; //this will deleted
+    public static String data;
 
 
 
@@ -55,20 +66,27 @@ public class SearchFragment extends Fragment {
 
     }
 
-    private class GeoHandler extends android.os.Handler {
+    public class GeoHandler extends android.os.Handler {
         @Override
         public void handleMessage(Message msg){
-            String address;
+            String latitude , longitude, address="";
+
             switch(msg.what){
                 case 1:
                     Bundle bundle= msg.getData();
-                    address = bundle.getString("address");
+                    latitude = bundle.getString("lat");
+                    longitude = bundle.getString("long");
+                    address = "Lat= "+ latitude + "\nLong= " + longitude;
+                    TakeData process = new TakeData(latitude , longitude);
+                    process.execute();
                     break;
                 default:
                     address=null;
 
+
             }
             textView.setText(address);
+
         }
 
 

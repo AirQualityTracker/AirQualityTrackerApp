@@ -16,19 +16,24 @@ public class CityLocation {
             @Override
             public void run() {
                 Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-                String result = null;
+                String result = null, longitude="" ,latitude="";
+                Bundle bundle = new Bundle();
                 try {
                     List addresslist = geocoder.getFromLocationName(locationAddress, 1);
                     if (addresslist != null && addresslist.size() > 0) {
                         Address address = (Address) addresslist.get(0);
                         StringBuilder stringBuilder = new StringBuilder();
-                        result  = "Lat =" + address.getLatitude() + "Long=" + address.getLongitude();
+                        latitude = String.valueOf(address.getLatitude());
+                        longitude= String.valueOf(address.getLongitude());
+                        result = latitude + "__" + longitude;
+
+
 
                         //stringBuilder.append(address.getLatitude() + '-');
                         //stringBuilder.append(address.getLongitude());
                         //stringBuilder.append(address.getCountryName() + '\n');
                         //stringBuilder.append(address.getLocality() + '\n');
-                        //result = stringBuilder.toString();
+                       // result = stringBuilder.toString();
                     }
                 }catch (IOException e) {
                     e.printStackTrace();
@@ -37,9 +42,9 @@ public class CityLocation {
                     message.setTarget(handler);
                     if (result!=null){
                         message.what=1;
-                        Bundle bundle = new Bundle();
-                        result = "Location " + locationAddress  + '\n' + result;
-                        bundle.putString("address" , result);
+                        //result = "Location " + locationAddress  + '\n' + result;
+                        bundle.putString("lat" , latitude);
+                        bundle.putString("long", longitude);
                         message.setData(bundle);
 
                     }

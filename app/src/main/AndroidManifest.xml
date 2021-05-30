@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.androidapp.airqualitytracker">
     <!-- set manifest to get user permission -->
+
+    <uses-permission android:name="android.permission.INTERNET00"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -19,8 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".RecyclerViewFavourites"></activity>
-        <activity android:name=".CreateNewAccountActivity" />
-        <activity android:name=".LogInActivity" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".GetLocationActivity" />
         <activity android:name=".GetStartedActivity" />
